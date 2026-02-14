@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { type CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
 import type { Project } from '@/src/data/projects';
 
 type HorizontalHomeProps = {
@@ -14,7 +14,10 @@ type ProjectSlot = {
   oneLiner: string;
   tags: string[];
   status: string;
-  link?: string;
+  accentFrom: string;
+  accentTo: string;
+  link: string;
+  ctaLabel: string;
 };
 
 type PanelId = 'hero' | 'projects' | 'philosophy' | 'process' | 'contact';
@@ -82,7 +85,10 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
         oneLiner: project.oneLiner,
         tags: project.tags,
         status: getStatusLabel(project.status),
+        accentFrom: project.visuals.gradientFrom,
+        accentTo: project.visuals.gradientTo,
         link: `/projects/${project.slug}`,
+        ctaLabel: 'View Details →',
       })),
       {
         slug: 'future-lab-slot',
@@ -90,6 +96,10 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
         oneLiner: 'A new focused product experiment is currently in research.',
         tags: ['In Discovery'],
         status: 'Coming Soon',
+        accentFrom: '#2b6dd6',
+        accentTo: '#3ebeff',
+        link: '/projects',
+        ctaLabel: 'Explore Portfolio →',
       },
     ],
     [projects],
@@ -98,14 +108,48 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
   useEffect(() => {
     const sections = panelOrder.map((panel) => sectionRefs.current[panel]).filter(Boolean) as HTMLElement[];
     const projectStrip = projectStripRef.current;
+    let animationFrame = 0;
 
     if (sections.length === 0) {
       return;
     }
 
-    const updateProgress = () => {
+    const getActivePanel = () => {
+      const probe = window.innerHeight * 0.46;
+      let fallbackPanel: PanelId = 'hero';
+      let bestDistance = Number.POSITIVE_INFINITY;
+
+      for (const section of sections) {
+        const panelId = section.getAttribute('data-panel-id') as PanelId | null;
+
+        if (!panelId) {
+          continue;
+        }
+
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= probe && rect.bottom >= probe) {
+          return panelId;
+        }
+
+        const distance = Math.min(Math.abs(rect.top - probe), Math.abs(rect.bottom - probe));
+
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          fallbackPanel = panelId;
+        }
+      }
+
+      return fallbackPanel;
+    };
+
+    const updateScrollState = () => {
       const total = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(total > 0 ? clamp(window.scrollY / total, 0, 1) : 0);
+      const nextProgress = total > 0 ? clamp(window.scrollY / total, 0, 1) : 0;
+      const nextPanel = getActivePanel();
+
+      setProgress((currentProgress) => (Math.abs(currentProgress - nextProgress) < 0.002 ? currentProgress : nextProgress));
+      setActivePanel((currentPanel) => (currentPanel === nextPanel ? currentPanel : nextPanel));
     };
 
     const revealObserver = new IntersectionObserver(
@@ -117,28 +161,7 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
         });
       },
       {
-        threshold: 0.34,
-      },
-    );
-
-    const panelObserver = new IntersectionObserver(
-      (entries) => {
-        const visiblePanels = entries.filter((entry) => entry.isIntersecting);
-
-        if (visiblePanels.length === 0) {
-          return;
-        }
-
-        visiblePanels.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        const mostVisible = visiblePanels[0];
-        const id = mostVisible.target.getAttribute('data-panel-id') as PanelId | null;
-
-        if (id) {
-          setActivePanel(id);
-        }
-      },
-      {
-        threshold: [0.35, 0.5, 0.7],
+        threshold: 0.22,
       },
     );
 
@@ -146,9 +169,16 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
       revealObserver.observe(element);
     });
 
-    sections.forEach((section) => {
-      panelObserver.observe(section);
-    });
+    const queueScrollUpdate = () => {
+      if (animationFrame !== 0) {
+        return;
+      }
+
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = 0;
+        updateScrollState();
+      });
+    };
 
     const handleProjectStripWheel = (event: WheelEvent) => {
       if (!projectStrip) {
@@ -164,16 +194,90 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
       }
     };
 
-    projectStrip?.addEventListener('wheel', handleProjectStripWheel, { passive: false });
+    let dragActive = false;
+    let dragMoved = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
 
-    updateProgress();
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    const handleProjectStripPointerDown = (event: PointerEvent) => {
+      if (!projectStrip) {
+        return;
+      }
+
+      if (event.pointerType === 'mouse' && event.button !== 0) {
+        return;
+      }
+
+      dragActive = true;
+      dragMoved = false;
+      dragStartX = event.clientX;
+      dragStartScroll = projectStrip.scrollLeft;
+      projectStrip.classList.add('is-dragging');
+      projectStrip.setPointerCapture?.(event.pointerId);
+    };
+
+    const handleProjectStripPointerMove = (event: PointerEvent) => {
+      if (!projectStrip || !dragActive) {
+        return;
+      }
+
+      const deltaX = event.clientX - dragStartX;
+
+      if (Math.abs(deltaX) > 2) {
+        dragMoved = true;
+      }
+
+      projectStrip.scrollLeft = dragStartScroll - deltaX;
+      event.preventDefault();
+    };
+
+    const stopProjectStripDrag = (event: PointerEvent) => {
+      if (!projectStrip || !dragActive) {
+        return;
+      }
+
+      dragActive = false;
+      projectStrip.classList.remove('is-dragging');
+      projectStrip.releasePointerCapture?.(event.pointerId);
+      window.setTimeout(() => {
+        dragMoved = false;
+      }, 0);
+    };
+
+    const handleProjectStripClickCapture = (event: MouseEvent) => {
+      if (!dragMoved) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+    };
+
+    projectStrip?.addEventListener('wheel', handleProjectStripWheel, { passive: false });
+    projectStrip?.addEventListener('pointerdown', handleProjectStripPointerDown);
+    projectStrip?.addEventListener('pointermove', handleProjectStripPointerMove);
+    projectStrip?.addEventListener('pointerup', stopProjectStripDrag);
+    projectStrip?.addEventListener('pointercancel', stopProjectStripDrag);
+    projectStrip?.addEventListener('click', handleProjectStripClickCapture, true);
+
+    updateScrollState();
+    window.addEventListener('scroll', queueScrollUpdate, { passive: true });
+    window.addEventListener('resize', queueScrollUpdate, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', updateProgress);
+      if (animationFrame !== 0) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+
+      window.removeEventListener('scroll', queueScrollUpdate);
+      window.removeEventListener('resize', queueScrollUpdate);
       projectStrip?.removeEventListener('wheel', handleProjectStripWheel);
+      projectStrip?.removeEventListener('pointerdown', handleProjectStripPointerDown);
+      projectStrip?.removeEventListener('pointermove', handleProjectStripPointerMove);
+      projectStrip?.removeEventListener('pointerup', stopProjectStripDrag);
+      projectStrip?.removeEventListener('pointercancel', stopProjectStripDrag);
+      projectStrip?.removeEventListener('click', handleProjectStripClickCapture, true);
       revealObserver.disconnect();
-      panelObserver.disconnect();
     };
   }, []);
 
@@ -188,9 +292,11 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
       return;
     }
 
-    panel.scrollIntoView({
+    const offsetTop = window.scrollY + panel.getBoundingClientRect().top;
+
+    window.scrollTo({
+      top: Math.max(offsetTop - 8, 0),
       behavior: 'smooth',
-      block: 'start',
     });
   };
 
@@ -245,7 +351,9 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
 
             <div className="hz-hero-main" data-reveal style={{ ['--reveal-delay' as string]: '80ms' }}>
               <p className="hz-eyebrow">Software Innovation Studio</p>
-              <h1 className="hz-title">Dezolve Labs</h1>
+              <h1 className="hz-title" data-text="Dezolve Labs">
+                Dezolve Labs
+              </h1>
               <p className="hz-subtitle">Dissolving complexity into elegant software.</p>
               <div className="hz-hero-actions">
                 <button className="hz-button hz-button-primary" type="button" onClick={() => jumpToPanel('projects')}>
@@ -276,7 +384,7 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
             <header className="hz-section-head" data-reveal style={{ ['--reveal-delay' as string]: '40ms' }}>
               <p className="hz-eyebrow">What We Build</p>
               <h2 className="hz-heading">Horizontal product bands in a vertical journey</h2>
-              <p className="hz-copy">Scroll down through sections, then drag this strip left to right to explore project tracks.</p>
+              <p className="hz-copy">Scroll down through sections, then drag or wheel this strip left to right to explore project tracks.</p>
             </header>
 
             <div className="hz-project-strip-shell" data-reveal style={{ ['--reveal-delay' as string]: '100ms' }}>
@@ -285,34 +393,38 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
               </button>
 
               <div className="hz-project-strip" role="list" aria-label="Dezolve Labs project strip" ref={projectStripRef}>
-                {projectSlots.map((project, index) => (
-                  <article
-                    className="hz-project-card"
-                    key={project.slug}
-                    role="listitem"
-                    data-reveal
-                    style={{ ['--reveal-delay' as string]: `${120 + index * 70}ms` }}
-                  >
-                    <p className="hz-project-status">{project.status}</p>
-                    <h3>{project.name}</h3>
-                    <p>{project.oneLiner}</p>
-                    <div className="hz-tag-row">
-                      {project.tags.map((tag) => (
-                        <span className="hz-tag" key={`${project.slug}-${tag}`}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="hz-divider" />
-                    {project.link ? (
-                      <Link href={project.link} className="hz-card-link">
-                        View Details →
-                      </Link>
-                    ) : (
-                      <p className="hz-card-muted">Details publish once this track exits discovery.</p>
-                    )}
-                  </article>
-                ))}
+                {projectSlots.map((project, index) => {
+                  const cardStyle = {
+                    ['--reveal-delay' as string]: `${120 + index * 70}ms`,
+                    ['--chip-accent-from' as string]: project.accentFrom,
+                    ['--chip-accent-to' as string]: project.accentTo,
+                  } as CSSProperties;
+
+                  return (
+                    <Link
+                      className="hz-project-card hz-project-card-link"
+                      href={project.link}
+                      key={project.slug}
+                      role="listitem"
+                      data-reveal
+                      style={cardStyle}
+                      aria-label={`Open ${project.name}`}
+                    >
+                      <p className="hz-project-status">{project.status}</p>
+                      <h3>{project.name}</h3>
+                      <p>{project.oneLiner}</p>
+                      <div className="hz-tag-row">
+                        {project.tags.map((tag) => (
+                          <span className="hz-tag" key={`${project.slug}-${tag}`}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="hz-divider" />
+                      <span className="hz-card-link">{project.ctaLabel}</span>
+                    </Link>
+                  );
+                })}
               </div>
 
               <button className="hz-strip-control" type="button" onClick={() => scrollProjectStrip('right')} aria-label="Scroll projects right">
@@ -404,6 +516,17 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
               <Link href="/contact">Contact</Link>
               <Link href="/privacy">Privacy</Link>
               <Link href="/terms">Terms</Link>
+            </div>
+            <div className="hz-home-footer-socials" aria-label="Social links">
+              <a href="https://www.linkedin.com/company/dezolvelabs" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <a href="https://x.com/dezolvelabs" target="_blank" rel="noreferrer">
+                X
+              </a>
+              <a href="https://www.youtube.com/@dezolvelabs" target="_blank" rel="noreferrer">
+                YouTube
+              </a>
             </div>
             <p className="hz-home-footer-meta">© {new Date().getFullYear()} Dezolve Labs</p>
           </div>

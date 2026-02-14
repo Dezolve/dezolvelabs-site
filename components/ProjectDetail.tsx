@@ -11,8 +11,16 @@ function getStatusLabel(status: Project['status']) {
 }
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
+  const accentSoft = `${project.visuals.gradientTo}45`;
+  const accentStrongSoft = `${project.visuals.gradientFrom}38`;
   const bannerTone = {
-    background: `linear-gradient(145deg, rgba(255,255,255,0.95), rgba(242,247,255,0.82)), radial-gradient(circle at 84% 18%, ${project.visuals.gradientTo}2d, transparent 58%)`,
+    ['--project-accent' as string]: project.visuals.gradientTo,
+    ['--project-accent-strong' as string]: project.visuals.gradientFrom,
+    background:
+      `linear-gradient(145deg, rgba(7, 14, 30, 0.96), rgba(6, 12, 26, 0.9)), ` +
+      `radial-gradient(circle at 84% 18%, ${accentSoft}, transparent 58%), ` +
+      `radial-gradient(circle at 14% 88%, ${accentStrongSoft}, transparent 60%)`,
+    borderColor: `${project.visuals.gradientTo}66`,
   } as CSSProperties;
 
   return (

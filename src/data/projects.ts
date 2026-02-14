@@ -78,9 +78,9 @@ export const projects: Project[] = [
       'Refreshly is a calm hydration app built around one-tap logging, gentle reminders, and small daily goals that make healthy routines easier to keep.',
     status: 'Building',
     links: {
-      primary: 'https://refreshly.com',
-      primaryLabel: 'Download Mobile App',
-      secondary: 'https://refreshly.com',
+      primary: 'https://refreshly.app',
+      primaryLabel: 'Visit Refreshly.app',
+      secondary: 'https://refreshly.app',
       secondaryLabel: 'App Store / Play links',
     },
     tags: ['Mobile', 'Health & Wellness'],
@@ -102,8 +102,8 @@ export const projects: Project[] = [
       },
     ],
     extraLinks: [
-      { label: 'Support', href: 'https://refreshly.com/support' },
-      { label: 'Privacy', href: 'https://refreshly.com/privacy' },
+      { label: 'Support', href: 'https://refreshly.app/support' },
+      { label: 'Privacy', href: 'https://refreshly.app/privacy' },
     ],
     visuals: {
       logo: '/projects/refreshly-mark.svg',
