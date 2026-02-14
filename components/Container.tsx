@@ -2,8 +2,9 @@ import type { ReactNode } from 'react';
 
 type ContainerProps = {
   children: ReactNode;
+  className?: string;
 };
 
-export function Container({ children }: ContainerProps) {
-  return <div style={{ maxWidth: 1080, margin: '0 auto', padding: '0 1rem' }}>{children}</div>;
+export function Container({ children, className }: ContainerProps) {
+  return <div className={["dl-container", className].filter(Boolean).join(' ')}>{children}</div>;
 }

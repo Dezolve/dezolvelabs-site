@@ -10,30 +10,19 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header style={{ borderBottom: '1px solid var(--line)', background: 'color-mix(in srgb, var(--surface) 92%, white)' }}>
-      <Container>
-        <div
-          style={{
-            minHeight: 68,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-            flexWrap: 'wrap',
-            padding: '0.75rem 0',
-          }}
-        >
-          <Link href="/" style={{ fontFamily: 'var(--font-heading), serif', fontWeight: 600, fontSize: '1.2rem' }}>
-            Dezolve Labs
-          </Link>
-          <nav style={{ display: 'flex', gap: '0.95rem', flexWrap: 'wrap' }} aria-label="Primary">
-            {navItems.map((item) => (
-              <Link key={item.href} href={item.href} style={{ color: 'var(--muted)', fontWeight: 500 }}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
+    <header className="site-header">
+      <Container className="site-header-inner">
+        <Link href="/" className="brand" aria-label="Dezolve Labs home">
+          <span className="brand-mark" aria-hidden="true" />
+          <span>Dezolve Labs</span>
+        </Link>
+        <nav className="site-nav" aria-label="Primary">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className="site-nav-link">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </Container>
     </header>
   );

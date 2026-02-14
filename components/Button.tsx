@@ -4,25 +4,29 @@ import type { ReactNode } from 'react';
 type ButtonProps = {
   href: string;
   children: ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'ghost';
+  className?: string;
 };
 
-export function Button({ href, children, variant = 'primary' }: ButtonProps) {
-  const isPrimary = variant === 'primary';
+function isExternalHref(href: string) {
+  return href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:');
+}
+
+export function Button({ href, children, variant = 'primary', className }: ButtonProps) {
+  const classes = ['button', `button-${variant}`, className].filter(Boolean).join(' ');
+
+  if (isExternalHref(href)) {
+    const shouldOpenNewTab = href.startsWith('http://') || href.startsWith('https://');
+
+    return (
+      <a href={href} className={classes} target={shouldOpenNewTab ? '_blank' : undefined} rel={shouldOpenNewTab ? 'noreferrer' : undefined}>
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <Link
-      href={href}
-      style={{
-        display: 'inline-flex',
-        padding: '0.62rem 1rem',
-        borderRadius: '999px',
-        border: isPrimary ? '1px solid var(--accent)' : '1px solid var(--line)',
-        background: isPrimary ? 'var(--accent)' : 'transparent',
-        color: isPrimary ? '#f8fafc' : 'var(--text)',
-        fontWeight: 600,
-      }}
-    >
+    <Link href={href} className={classes}>
       {children}
     </Link>
   );

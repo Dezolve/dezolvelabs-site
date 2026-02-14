@@ -3,28 +3,24 @@ import { Container } from '@/components/Container';
 
 export function SiteFooter() {
   return (
-    <footer style={{ borderTop: '1px solid var(--line)', marginTop: '2rem' }}>
-      <Container>
-        <div
-          style={{
-            minHeight: 120,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '0.75rem',
-            padding: '1rem 0',
-          }}
-        >
-          <p style={{ margin: 0 }}>© {new Date().getFullYear()} Dezolve Labs</p>
-          <div style={{ display: 'flex', gap: '0.8rem' }}>
-            <Link href="/privacy" style={{ color: 'var(--muted)' }}>
-              Privacy
-            </Link>
-            <Link href="/terms" style={{ color: 'var(--muted)' }}>
-              Terms
-            </Link>
-          </div>
+    <footer className="site-footer">
+      <Container className="site-footer-inner">
+        <div className="footer-brand">
+          <p className="footer-brand-title">Dezolve Labs</p>
+          <p>Independent digital products built with clarity-first design.</p>
+          <p>© {new Date().getFullYear()} Dezolve Labs</p>
+          <p className="footer-powered">Powered by Dezolve Labs</p>
+        </div>
+
+        <div className="footer-links">
+          <Link href="/projects">Projects</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+          <a href="https://github.com/Dezolve" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
         </div>
       </Container>
     </footer>

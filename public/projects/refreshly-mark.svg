@@ -1,0 +1,11 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="40" height="40" rx="12" fill="url(#refGrad)"/>
+  <path d="M20 9C20 9 12.5 16.6 12.5 21.4C12.5 25.8 15.9 29.3 20 29.3C24.1 29.3 27.5 25.8 27.5 21.4C27.5 16.6 20 9 20 9Z" fill="white" fill-opacity="0.3"/>
+  <path d="M20 11.5C20 11.5 14.2 17.5 14.2 21.1C14.2 24.3 16.7 26.8 20 26.8C23.3 26.8 25.8 24.3 25.8 21.1C25.8 17.5 20 11.5 20 11.5Z" stroke="white" stroke-width="2"/>
+  <defs>
+    <linearGradient id="refGrad" x1="4" y1="3" x2="36" y2="37" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2558DB"/>
+      <stop offset="1" stop-color="#1AC1BC"/>
+    </linearGradient>
+  </defs>
+</svg>

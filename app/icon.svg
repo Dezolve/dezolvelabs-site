@@ -1,5 +1,11 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="14" fill="#0F766E"/>
-  <path d="M18 18H36C43.732 18 50 24.268 50 32C50 39.732 43.732 46 36 46H18V18Z" fill="#F8FAFC"/>
-  <path d="M30 24H36C40.4183 24 44 27.5817 44 32C44 36.4183 40.4183 40 36 40H30V24Z" fill="#0F766E"/>
+  <defs>
+    <linearGradient id="dz" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D6FFF"/>
+      <stop offset="1" stop-color="#16C6B6"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#dz)"/>
+  <path d="M18 16H36C43.732 16 50 22.268 50 30C50 37.732 43.732 44 36 44H18V16Z" fill="#F7FBFF"/>
+  <path d="M30 22H36C40.418 22 44 25.582 44 30C44 34.418 40.418 38 36 38H30V22Z" fill="#2D6FFF"/>
 </svg>

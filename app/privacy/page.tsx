@@ -9,18 +9,30 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <Container>
-      <section className="section" style={{ maxWidth: 800 }}>
-        <h1 style={{ fontFamily: 'var(--font-heading), serif', fontSize: '2rem' }}>Privacy Policy</h1>
-        <p>Last updated: February 14, 2026</p>
+      <article className="legal-shell">
+        <h1>Privacy Policy</h1>
+        <p className="legal-meta">Last updated: February 14, 2026</p>
+
         <p>
-          Dezolve Labs collects only the minimum information needed to run this website and support customer inquiries.
-          We do not sell personal data. If you contact us, we use your message details solely to respond.
+          Dezolve Labs collects only the information needed to operate this website and respond to direct inquiries. We do
+          not sell personal data or use personal information for unrelated marketing.
         </p>
+
+        <h2>Information we receive</h2>
         <p>
-          Individual products may have their own privacy policies, available on each product detail page and product
-          site.
+          If you contact us, we receive the information you include in your message, such as your name, email address,
+          and inquiry details.
         </p>
-      </section>
+
+        <h2>How we use information</h2>
+        <p>We use submitted information only to respond to support, partnership, or business requests.</p>
+
+        <h2>Product-specific policies</h2>
+        <p>
+          Individual products under Dezolve Labs may publish separate privacy policies. Those policies apply when using
+          the specific product service.
+        </p>
+      </article>
     </Container>
   );
 }

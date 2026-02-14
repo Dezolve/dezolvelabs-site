@@ -11,11 +11,10 @@ export const metadata: Metadata = {
     default: 'Dezolve Labs',
     template: '%s | Dezolve Labs',
   },
-  description: 'Dezolve Labs builds calm, practical software products that dissolve complexity into simple daily actions.',
+  description: 'Dezolve Labs dissolves complexity into simple, meaningful digital experiences.',
   openGraph: {
     title: 'Dezolve Labs',
-    description:
-      'Dissolving complexity, one simple product at a time. Explore FavStir, Refreshly, and future tools from Dezolve Labs.',
+    description: 'Studio-built software products focused on clarity, calm interactions, and practical outcomes.',
     url: siteUrl,
     siteName: 'Dezolve Labs',
     locale: 'en_US',
@@ -24,8 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Dezolve Labs',
-    description:
-      'Dissolving complexity, one simple product at a time. Explore products built by Dezolve Labs.',
+    description: 'Dissolving complexity into simple, meaningful digital experiences.',
   },
 };
 
@@ -36,11 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        style={{
-          fontFamily: 'var(--font-body), sans-serif',
-        }}
-      >
+      <body>
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

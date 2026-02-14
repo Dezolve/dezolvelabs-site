@@ -1,0 +1,22 @@
+<svg width="420" height="820" viewBox="0 0 420 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="frame" x1="42" y1="30" x2="380" y2="792" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1C2336"/>
+      <stop offset="0.55" stop-color="#202B40"/>
+      <stop offset="1" stop-color="#121A2A"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="52" y1="60" x2="338" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E6EEFF" stop-opacity="0.44"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="14" width="384" height="792" rx="64" fill="url(#frame)"/>
+  <rect x="34" y="30" width="352" height="760" rx="52" fill="#0E1627"/>
+  <rect x="50" y="58" width="320" height="704" rx="38" fill="#DCE7FF"/>
+  <rect x="50" y="58" width="320" height="704" rx="38" fill="url(#edge)"/>
+  <rect x="162" y="36" width="96" height="12" rx="6" fill="#2F3B53"/>
+  <circle cx="282" cy="42" r="5" fill="#3B4862"/>
+  <rect x="12" y="142" width="6" height="80" rx="3" fill="#28344B"/>
+  <rect x="12" y="242" width="6" height="48" rx="3" fill="#28344B"/>
+  <rect x="402" y="182" width="6" height="120" rx="3" fill="#28344B"/>
+</svg>
