@@ -24,7 +24,7 @@ export const projects: Project[] = [
     name: 'FavStir',
     oneLiner: 'Curated list sharing built for real recommendations.',
     description:
-      'Curated list-sharing app for organizing and sharing favorite places, movie picks, restaurants, and more with friends and family without noisy feeds or algorithms.',
+      'Curated list-sharing app for organizing and sharing favorite places, movie picks, restaurants, and more with friends and family, without noisy feeds or algorithms.',
     status: 'Live',
     links: {
       primary: 'https://favstir.com',
@@ -47,13 +47,13 @@ export const projects: Project[] = [
     name: 'Refreshly',
     oneLiner: 'Hydration habit app with simple, mindful tracking.',
     description:
-      'Hydration tracking mobile app focused on building a hydration habit with simple one-tap logging, gentle reminders, and small daily goals.',
+      'Hydration tracking mobile app focused on building a hydration habit with simple one-tap logging, gentle reminders, and small daily goals through calm-first habit design.',
     status: 'Building',
     links: {
       primary: 'https://refreshly.com',
       primaryLabel: 'Download Mobile App',
       secondary: 'https://refreshly.com',
-      secondaryLabel: 'View app links',
+      secondaryLabel: 'App Store / Play links',
     },
     tags: ['Mobile', 'Health & Wellness'],
     features: [

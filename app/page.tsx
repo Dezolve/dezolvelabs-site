@@ -7,10 +7,18 @@ export default function HomePage() {
   return (
     <Container>
       <section className="section" style={{ paddingTop: '4.5rem' }}>
-        <p style={{ marginBottom: '0.5rem', fontWeight: 600, color: 'var(--accent-strong)' }}>Dezolve Labs</p>
-        <h1 style={{ fontFamily: 'var(--font-heading), serif', fontSize: 'clamp(2.2rem, 6vw, 4rem)' }}>
+        <h1 style={{ fontFamily: 'var(--font-heading), serif', fontSize: 'clamp(2.5rem, 6vw, 4.3rem)' }}>Dezolve Labs</h1>
+        <p
+          style={{
+            marginTop: '0.7rem',
+            marginBottom: 0,
+            fontWeight: 600,
+            color: 'var(--accent-strong)',
+            fontSize: 'clamp(1rem, 2.3vw, 1.35rem)',
+          }}
+        >
           Dissolving complexity, one simple product at a time
-        </h1>
+        </p>
         <p style={{ maxWidth: 700, marginTop: '1.2rem' }}>
           Dezolve Labs is a product studio and holding brand focused on calm software. We build practical products that
           remove friction from daily decisions and habits.

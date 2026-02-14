@@ -1,18 +1,7 @@
 import type { Metadata } from 'next';
-import { Fraunces, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
-
-const headingFont = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-heading',
-});
-
-const bodyFont = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-body',
-});
 
 const siteUrl = 'https://dezolvelabs.com';
 
@@ -46,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${headingFont.variable} ${bodyFont.variable}`}>
+    <html lang="en">
       <body
         style={{
           fontFamily: 'var(--font-body), sans-serif',
