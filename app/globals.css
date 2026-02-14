@@ -1,0 +1,57 @@
+:root {
+  --bg: #f6f4ee;
+  --surface: #fffdf7;
+  --text: #0f172a;
+  --muted: #334155;
+  --line: #d6d3c4;
+  --accent: #0f766e;
+  --accent-strong: #115e59;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at 10% -10%, #fefce8 0%, var(--bg) 45%, #e7ecef 100%);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  min-height: calc(100vh - 190px);
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.section {
+  padding: 3.5rem 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 800px) {
+  .grid.cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
