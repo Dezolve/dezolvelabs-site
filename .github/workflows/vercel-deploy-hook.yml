@@ -9,15 +9,24 @@ on:
 jobs:
   trigger:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+      DEPLOY_HOOK_URL_FALLBACK: ${{ vars.VERCEL_DEPLOY_HOOK_URL }}
     steps:
-      - name: Validate deploy hook secret exists
+      - name: Resolve deploy hook URL
         run: |
-          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}" ]; then
-            echo "Missing required secret: VERCEL_DEPLOY_HOOK_URL"
+          hook_url="${DEPLOY_HOOK_URL:-$DEPLOY_HOOK_URL_FALLBACK}"
+
+          if [ -z "$hook_url" ]; then
+            echo "Missing VERCEL_DEPLOY_HOOK_URL (set as Actions secret or repository variable)."
             exit 1
           fi
 
+          {
+            echo "HOOK_URL=$hook_url"
+          } >> "$GITHUB_ENV"
+
       - name: Trigger Vercel deployment
         run: |
-          response="$(curl --fail-with-body -sS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}")"
+          response="$(curl --fail-with-body -sS -X POST "$HOOK_URL")"
           echo "Vercel response: $response"
