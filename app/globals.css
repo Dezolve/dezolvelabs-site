@@ -38,6 +38,7 @@ body {
   min-height: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html {
@@ -65,8 +66,7 @@ a {
 
 main {
   min-height: calc(100vh - 160px);
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 p {
@@ -1218,8 +1218,7 @@ ul {
 /* Horizontal-first home experience */
 .main-home {
   min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 .hz-shell {
@@ -1234,35 +1233,17 @@ ul {
   background: var(--hz-black);
   color: var(--hz-white);
   overflow-x: hidden;
-}
-
-.hz-progress {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 4px;
-  background: rgba(62, 190, 255, 0.2);
-  z-index: 90;
-}
-
-.hz-progress span {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform-origin: left center;
-  transform: scaleX(0);
-  background: linear-gradient(90deg, #2f99d4, var(--hz-accent));
-  transition: transform 120ms linear;
+  overflow-x: clip;
 }
 
 .hz-panel-nav {
   position: fixed;
-  right: 1rem;
+  right: clamp(0.4rem, 1.6vw, 1rem);
   top: 50%;
   transform: translateY(-50%);
   display: grid;
   gap: 0.5rem;
+  max-width: calc(100vw - 0.8rem);
   z-index: 70;
 }
 
@@ -1270,11 +1251,13 @@ ul {
   border: 0;
   background: transparent;
   display: inline-flex;
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.5rem;
   cursor: pointer;
   padding: 0.15rem;
+  max-width: 100%;
 }
 
 .hz-panel-nav button span {
@@ -1293,8 +1276,9 @@ ul {
   letter-spacing: 0.08em;
   color: rgba(232, 232, 232, 0.78);
   opacity: 0;
-  transform: translateX(6px);
+  transform: translateX(-6px);
   transition: opacity 180ms ease, transform 180ms ease;
+  white-space: nowrap;
 }
 
 .hz-panel-nav[data-tone="light"] button span {
@@ -1329,6 +1313,7 @@ ul {
   width: 100%;
   display: grid;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .hz-panel {
@@ -1338,6 +1323,7 @@ ul {
   align-items: center;
   padding: clamp(1.5rem, 4vh, 2.8rem) clamp(1.15rem, 2.8vw, 2.35rem);
   position: relative;
+  overflow: hidden;
   overflow: clip;
   scroll-margin-top: 0.5rem;
 }
@@ -1536,21 +1522,22 @@ ul {
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 40%,
-    rgba(110, 194, 255, 0.12) 47%,
-    rgba(188, 233, 255, 0.68) 50%,
-    rgba(110, 194, 255, 0.12) 53%,
-    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0) 42%,
+    rgba(7, 31, 68, 0.06) 47%,
+    rgba(7, 31, 68, 0.88) 50%,
+    rgba(7, 31, 68, 0.06) 53%,
+    rgba(0, 0, 0, 0) 58%,
     rgba(0, 0, 0, 0) 100%
   );
-  background-size: 230% 100%;
-  background-position: 100% 50%;
+  background-size: 250% 100%;
+  background-position: 120% 50%;
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 0 6px rgba(62, 190, 255, 0.15));
+  filter: drop-shadow(0 0 7px rgba(7, 31, 68, 0.3));
+  mix-blend-mode: normal;
   opacity: 0;
   pointer-events: none;
-  animation: hz-title-backward-highlight 4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: hz-title-backward-highlight 6.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .hz-subtitle {
@@ -1684,7 +1671,8 @@ ul {
 }
 
 .hz-project-strip::-webkit-scrollbar {
-  display: none;
+  width: 0;
+  height: 0;
 }
 
 .hz-project-card {
@@ -2140,24 +2128,24 @@ ul {
 @keyframes hz-title-backward-highlight {
   0% {
     opacity: 0;
-    background-position: 100% 50%;
+    background-position: 120% 50%;
   }
 
-  12% {
-    opacity: 0.68;
+  16% {
+    opacity: 0.62;
   }
 
-  52% {
-    opacity: 0.72;
-    background-position: 0% 50%;
+  56% {
+    opacity: 0.78;
+    background-position: -20% 50%;
   }
 
-  76% {
+  84% {
     opacity: 0;
   }
 
   100% {
     opacity: 0;
-    background-position: 0% 50%;
+    background-position: -20% 50%;
   }
 }

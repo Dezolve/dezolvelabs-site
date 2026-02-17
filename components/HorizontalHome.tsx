@@ -61,12 +61,7 @@ function getStatusLabel(status: Project['status']) {
   return status === 'Building' ? 'In Development' : 'Live';
 }
 
-function clamp(value: number, min: number, max: number) {
-  return Math.min(Math.max(value, min), max);
-}
-
 export function HorizontalHome({ projects }: HorizontalHomeProps) {
-  const [progress, setProgress] = useState(0);
   const [activePanel, setActivePanel] = useState<PanelId>('hero');
   const projectStripRef = useRef<HTMLDivElement | null>(null);
   const sectionRefs = useRef<Record<PanelId, HTMLElement | null>>({
@@ -144,11 +139,8 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
     };
 
     const updateScrollState = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      const nextProgress = total > 0 ? clamp(window.scrollY / total, 0, 1) : 0;
       const nextPanel = getActivePanel();
 
-      setProgress((currentProgress) => (Math.abs(currentProgress - nextProgress) < 0.002 ? currentProgress : nextProgress));
       setActivePanel((currentPanel) => (currentPanel === nextPanel ? currentPanel : nextPanel));
     };
 
@@ -320,10 +312,6 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
 
   return (
     <div className="hz-shell" data-active-panel={activePanel}>
-      <div className="hz-progress" aria-hidden="true">
-        <span style={{ transform: `scaleX(${progress})` }} />
-      </div>
-
       <nav className="hz-panel-nav" data-tone={activePanel === 'contact' ? 'light' : 'dark'} aria-label="Homepage section navigation">
         {panelOrder.map((panel) => (
           <button
