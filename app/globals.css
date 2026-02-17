@@ -1511,33 +1511,31 @@ ul {
   text-transform: uppercase;
   text-wrap: balance;
   color: var(--hz-white);
-  text-shadow: 0 2px 24px rgba(62, 190, 255, 0.22);
+  text-shadow: 0 0 18px rgba(99, 102, 241, 0.38);
 }
 
 .hz-title::after {
   content: attr(data-text);
   position: absolute;
   inset: 0;
-  color: transparent;
+
+  /* more interesting gradient stops with contrast */
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 42%,
-    rgba(7, 31, 68, 0.06) 47%,
-    rgba(7, 31, 68, 0.88) 50%,
-    rgba(7, 31, 68, 0.06) 53%,
-    rgba(0, 0, 0, 0) 58%,
-    rgba(0, 0, 0, 0) 100%
+    #1e3a8a 0%,
+    #4f46e5 25%,
+    #60a5fa 50%,
+    #6366f1 75%,
+    #1e3a8a 100%
   );
-  background-size: 250% 100%;
-  background-position: 120% 50%;
+
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 0 7px rgba(7, 31, 68, 0.3));
-  mix-blend-mode: normal;
-  opacity: 0;
-  pointer-events: none;
-  animation: hz-title-backward-highlight 6.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  color: transparent;
+
+  animation: hz-title-gradient-sweep 8s ease-in-out infinite;
+  opacity: 1;
 }
 
 .hz-subtitle {
@@ -2101,7 +2099,7 @@ ul {
 
   .hz-title::after {
     animation: none;
-    opacity: 0;
+    background-position: 100% 50%;
   }
 
   [data-reveal],
@@ -2125,27 +2123,12 @@ ul {
   }
 }
 
-@keyframes hz-title-backward-highlight {
+@keyframes hz-title-gradient-sweep {
   0% {
-    opacity: 0;
-    background-position: 120% 50%;
-  }
-
-  16% {
-    opacity: 0.62;
-  }
-
-  56% {
-    opacity: 0.78;
-    background-position: -20% 50%;
-  }
-
-  84% {
-    opacity: 0;
+    background-position: 0% 50%;
   }
 
   100% {
-    opacity: 0;
-    background-position: -20% 50%;
+    background-position: 200% 50%;
   }
 }
