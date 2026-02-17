@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import type { Project } from '@/src/data/projects';
@@ -20,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <header className="project-card-head">
         <div className="project-brand">
           <span className="project-logo" style={logoStyle} aria-hidden="true">
-            <img src={project.visuals.logo} alt="" />
+            <Image src={project.visuals.logo} alt="" width={30} height={30} />
           </span>
           <h3 className="project-name">{project.name}</h3>
         </div>

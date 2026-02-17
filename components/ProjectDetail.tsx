@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { CSSProperties } from 'react';
 import { Button } from '@/components/Button';
 import type { Project } from '@/src/data/projects';
@@ -39,8 +40,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           </div>
 
           <div className="project-visual" aria-hidden="true">
-            <img className="device-frame" src="/graphics/device-frame.svg" alt="" />
-            <img className="device-screen" src={project.visuals.preview} alt="" />
+            <Image className="device-frame" src="/graphics/device-frame.svg" alt="" width={420} height={820} />
+            <Image className="device-screen" src={project.visuals.preview} alt="" width={300} height={620} />
           </div>
         </div>
       </section>
@@ -58,7 +59,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <ul className="benefit-list">
             {project.features.map((feature) => (
               <li key={feature.title} className="benefit-item">
-                <img src={feature.icon} alt="" />
+                <Image src={feature.icon} alt="" width={20} height={20} />
                 <div>
                   <p className="value-title">{feature.title}</p>
                   <p>{feature.detail}</p>

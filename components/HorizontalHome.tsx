@@ -204,7 +204,12 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
         return;
       }
 
-      if (event.pointerType === 'mouse' && event.button !== 0) {
+      // Use custom click-and-drag only for mouse; keep touch scrolling native.
+      if (event.pointerType !== 'mouse') {
+        return;
+      }
+
+      if (event.button !== 0) {
         return;
       }
 

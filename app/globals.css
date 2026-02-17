@@ -1524,6 +1524,8 @@ ul {
   letter-spacing: -0.045em;
   text-transform: uppercase;
   text-wrap: balance;
+  color: var(--hz-white);
+  text-shadow: 0 2px 24px rgba(62, 190, 255, 0.22);
 }
 
 .hz-title::after {
@@ -1636,7 +1638,8 @@ ul {
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
-  touch-action: pan-x;
+  touch-action: auto;
+  -webkit-overflow-scrolling: touch;
   min-width: 0;
 }
 
@@ -2076,6 +2079,7 @@ ul {
 
   .hz-project-strip {
     grid-auto-columns: minmax(84vw, 1fr);
+    scroll-snap-type: x proximity;
   }
 
   .hz-project-strip-shell {
