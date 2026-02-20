@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <Container>
-      <section className="section">
+      <section className="page-shell">
         <ProjectDetail project={project} />
       </section>
     </Container>

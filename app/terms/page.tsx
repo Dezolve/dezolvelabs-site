@@ -10,10 +10,17 @@ export default function TermsPage() {
   return (
     <Container>
       <article className="legal-shell">
-        <h1>Terms of Use</h1>
-        <p className="legal-meta">Last updated: February 14, 2026</p>
+        <p className="kicker" data-reveal>
+          Legal
+        </p>
+        <h1 data-reveal style={{ ['--reveal-delay' as string]: '60ms' }}>
+          Terms of Use
+        </h1>
+        <p className="legal-meta" data-reveal style={{ ['--reveal-delay' as string]: '100ms' }}>
+          Last updated: February 14, 2026
+        </p>
 
-        <p>
+        <p data-reveal style={{ ['--reveal-delay' as string]: '130ms' }}>
           By using this website, you agree to use it lawfully and in a way that does not harm service availability,
           website integrity, or other users.
         </p>

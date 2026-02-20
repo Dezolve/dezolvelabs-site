@@ -10,10 +10,17 @@ export default function PrivacyPage() {
   return (
     <Container>
       <article className="legal-shell">
-        <h1>Privacy Policy</h1>
-        <p className="legal-meta">Last updated: February 14, 2026</p>
+        <p className="kicker" data-reveal>
+          Legal
+        </p>
+        <h1 data-reveal style={{ ['--reveal-delay' as string]: '60ms' }}>
+          Privacy Policy
+        </h1>
+        <p className="legal-meta" data-reveal style={{ ['--reveal-delay' as string]: '100ms' }}>
+          Last updated: February 14, 2026
+        </p>
 
-        <p>
+        <p data-reveal style={{ ['--reveal-delay' as string]: '130ms' }}>
           Dezolve Labs collects only the information needed to operate this website and respond to direct inquiries. We do
           not sell personal data or use personal information for unrelated marketing.
         </p>

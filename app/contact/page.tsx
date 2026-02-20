@@ -1,67 +1,79 @@
 import type { Metadata } from 'next';
-import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contact Dezolve Labs for support, collaboration, and partnership inquiries.',
+  description: 'Start a project with Dezolve Labs and connect through direct channels.',
 };
 
 export default function ContactPage() {
   return (
     <Container>
-      <section className="section" aria-labelledby="contact-heading">
+      <section className="page-shell" aria-labelledby="contact-heading">
         <header className="page-intro">
-          <span className="section-kicker">Contact</span>
-          <h1 id="contact-heading" className="page-title reveal" style={{ ['--delay' as string]: '50ms' }}>
-            Let&apos;s talk about product support or collaboration
+          <p className="kicker" data-reveal style={{ ['--reveal-delay' as string]: '40ms' }}>
+            Contact
+          </p>
+          <h1 id="contact-heading" className="page-title" data-reveal style={{ ['--reveal-delay' as string]: '90ms' }}>
+            Start your project with a clear first step.
           </h1>
-          <p className="section-copy reveal" style={{ ['--delay' as string]: '110ms' }}>
-            Reach out for product questions, partnerships, or media inquiries. Messages go directly to the Dezolve Labs
-            team mailbox.
+          <p className="page-copy" data-reveal style={{ ['--reveal-delay' as string]: '140ms' }}>
+            Share your context, timeline, and constraints. We will respond with practical guidance and the next best action.
           </p>
         </header>
 
         <div className="contact-grid">
-          <form className="contact-form reveal" style={{ ['--delay' as string]: '130ms' }} action="mailto:hello@dezolvelabs.com" method="post" encType="text/plain">
-            <h2>Quick message</h2>
+          <form
+            className="contact-form-panel"
+            data-reveal
+            style={{ ['--reveal-delay' as string]: '100ms' }}
+            action="mailto:hello@dezolvelabs.com"
+            method="post"
+            encType="text/plain"
+          >
+            <h2>Project brief</h2>
+
             <div className="field">
               <label htmlFor="name">Name</label>
               <input id="name" name="name" type="text" placeholder="Your name" required />
             </div>
+
             <div className="field">
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <input id="email" name="email" type="email" placeholder="you@company.com" required />
             </div>
+
             <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us what you need" required />
+              <label htmlFor="summary">Project summary</label>
+              <textarea id="summary" name="summary" placeholder="What are you building and where are you blocked?" required />
             </div>
+
             <button className="button button-primary" type="submit">
-              Open Email Draft
+              Send project brief
             </button>
           </form>
 
-          <aside className="contact-card reveal" style={{ ['--delay' as string]: '180ms' }}>
+          <aside className="contact-card-panel" data-reveal style={{ ['--reveal-delay' as string]: '160ms' }}>
             <h2>Direct channels</h2>
             <p>
-              Prefer direct email? Use <a className="inline-link" href="mailto:hello@dezolvelabs.com">hello@dezolvelabs.com</a>.
-            </p>
-            <p style={{ marginTop: '0.85rem' }}>
-              We usually reply within two business days.
-            </p>
-            <div className="support-links" style={{ marginTop: '1rem' }}>
-              <a className="support-link" href="mailto:hello@dezolvelabs.com">
-                Email
+              Email us directly at{' '}
+              <a className="inline-link" href="mailto:hello@dezolvelabs.com">
+                hello@dezolvelabs.com
               </a>
-              <a className="support-link" href="https://github.com/Dezolve" target="_blank" rel="noreferrer">
+              .
+            </p>
+            <p>Typical response time: two business days.</p>
+
+            <div className="contact-social-list">
+              <a href="https://www.linkedin.com/company/dezolvelabs" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <a href="https://x.com/dezolvelabs" target="_blank" rel="noreferrer">
+                X
+              </a>
+              <a href="https://github.com/Dezolve" target="_blank" rel="noreferrer">
                 GitHub
               </a>
-            </div>
-            <div style={{ marginTop: '1.2rem' }}>
-              <Button href="/projects" variant="ghost">
-                Explore Projects
-              </Button>
             </div>
           </aside>
         </div>

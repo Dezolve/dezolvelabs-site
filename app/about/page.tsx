@@ -1,90 +1,136 @@
+import type { CSSProperties } from 'react';
 import type { Metadata } from 'next';
 import { Container } from '@/components/Container';
 
 const processSteps = [
   {
-    title: 'Observe the friction',
-    copy: 'We start by mapping where people lose time, attention, or confidence in a workflow.',
+    title: 'Discover',
+    copy: 'We audit the existing workflow and isolate where confidence drops for real users.',
   },
   {
-    title: 'Dissolve complexity',
-    copy: 'We reduce the problem to a clear loop, then remove unnecessary choices and visual noise.',
+    title: 'Iterate',
+    copy: 'Low-fidelity prototypes test hierarchy, copy, and transitions before visual polish.',
   },
   {
-    title: 'Ship a focused system',
-    copy: 'Each product launches with a tight scope, strong defaults, and a measurable value proposition.',
+    title: 'Refine',
+    copy: 'We tighten interaction pacing, spacing rhythm, and system-level consistency.',
   },
   {
-    title: 'Refine with evidence',
-    copy: 'Usage data and support feedback guide iterative improvements without feature sprawl.',
+    title: 'Deploy',
+    copy: 'Delivery includes clear QA standards, analytics hooks, and documented guardrails.',
   },
 ];
 
-const values = [
+const principles = [
   {
-    title: 'Clarity over novelty',
-    copy: 'People should understand a product in seconds, not after reading documentation.',
+    title: 'Why horizontal chapters?',
+    copy: 'They reduce cognitive drift by letting each section feel like a focused scene with a clear objective.',
   },
   {
-    title: 'Calm product behavior',
-    copy: 'We avoid manipulative mechanics and optimize for trust, rhythm, and steady utility.',
+    title: 'How we keep motion useful',
+    copy: 'Animation only supports orientation, hierarchy, and intent. Decorative movement is removed.',
   },
   {
-    title: 'Studio-level stewardship',
-    copy: 'As a holding studio, we support each product as a long-term asset with dedicated attention.',
+    title: 'How we scale this system',
+    copy: 'Reusable panel templates let us add new pages and products without visual inconsistency.',
   },
 ];
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Learn why Dezolve Labs builds simple tools and what it means to be a calm, focused holding studio.',
+  description: 'The design philosophy, process, and operating principles behind Dezolve Labs.',
 };
 
 export default function AboutPage() {
   return (
     <Container>
-      <section className="section" aria-labelledby="about-heading">
+      <section className="page-shell" aria-labelledby="about-heading">
         <header className="page-intro">
-          <span className="section-kicker">About</span>
-          <h1 id="about-heading" className="page-title reveal" style={{ ['--delay' as string]: '50ms' }}>
-            A holding studio for clear, useful software
+          <p className="kicker" data-reveal style={{ ['--reveal-delay' as string]: '40ms' }}>
+            About
+          </p>
+          <h1 id="about-heading" className="page-title" data-reveal style={{ ['--reveal-delay' as string]: '90ms' }}>
+            Building software chapters with contrast, clarity, and intent.
           </h1>
-          <p className="section-copy reveal" style={{ ['--delay' as string]: '110ms' }}>
-            Dezolve Labs operates as an independent product lab. Rather than stacking every idea into one platform, we
-            build focused tools with explicit jobs, then steward each product as its own business unit.
+          <p className="page-copy" data-reveal style={{ ['--reveal-delay' as string]: '140ms' }}>
+            Dezolve Labs treats every product as a focused story. We shape each chapter to move users from uncertainty to
+            confident action.
           </p>
         </header>
 
-        <div className="about-grid">
-          <section className="detail-card reveal" style={{ ['--delay' as string]: '130ms' }} aria-labelledby="process-heading">
-            <h2 id="process-heading">How Dezolve thinks and builds</h2>
-            <div className="timeline">
-              {processSteps.map((step) => (
-                <article key={step.title} className="timeline-item">
-                  <span className="timeline-node" aria-hidden="true" />
-                  <h3 className="timeline-title">{step.title}</h3>
-                  <p>{step.copy}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="detail-card reveal" style={{ ['--delay' as string]: '180ms' }} aria-labelledby="values-heading">
-            <h2 id="values-heading">Mission and values</h2>
-            <p>
-              Our mission is to turn confusing daily workflows into simple, meaningful experiences people can trust.
-              This means fewer features, stronger defaults, and thoughtful product cadence.
+        <section className="split-panel" data-reveal style={{ ['--reveal-delay' as string]: '80ms' }}>
+          <div className="split-panel-copy">
+            <p className="kicker">Philosophy</p>
+            <h2 className="section-title">Left-brain structure, right-brain craft.</h2>
+            <p className="section-copy">
+              We combine strict grid systems and contrast-led UI with tactile motion that feels intentional, not ornamental.
             </p>
-            <div className="value-grid" style={{ marginTop: '1rem' }}>
-              {values.map((value) => (
-                <article key={value.title} className="value-card">
-                  <h3 className="value-title">{value.title}</h3>
-                  <p>{value.copy}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-        </div>
+          </div>
+          <div className="split-panel-visual split-panel-visual-strong" aria-hidden="true">
+            <p>Simple architecture.</p>
+            <p>Deliberate hierarchy.</p>
+            <p>Reliable outcomes.</p>
+          </div>
+        </section>
+
+        <section className="split-panel split-panel-reverse" data-reveal style={{ ['--reveal-delay' as string]: '120ms' }}>
+          <div className="split-panel-copy">
+            <p className="kicker">Craft Standard</p>
+            <h2 className="section-title">Every interaction must earn its place.</h2>
+            <p className="section-copy">
+              We eliminate throwaway effects and keep the interface fast, legible, and durable across devices.
+            </p>
+          </div>
+          <div className="split-panel-visual split-panel-visual-grid" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+        </section>
+
+        <section className="page-chapter" aria-labelledby="about-process">
+          <p className="kicker" data-reveal style={{ ['--reveal-delay' as string]: '40ms' }}>
+            Process
+          </p>
+          <h2 id="about-process" className="section-title" data-reveal style={{ ['--reveal-delay' as string]: '90ms' }}>
+            Discover, iterate, refine, deploy.
+          </h2>
+
+          <div className="process-rail">
+            {processSteps.map((step, index) => (
+              <article
+                key={step.title}
+                className="process-rail-step"
+                data-reveal
+                style={
+                  {
+                    ['--reveal-delay' as string]: `${130 + index * 90}ms`,
+                    ['--reveal-from' as string]: index % 2 === 0 ? 'translate3d(-36px, 0, 0)' : 'translate3d(36px, 0, 0)',
+                  } as CSSProperties
+                }
+              >
+                <p className="process-step-label">Step {index + 1}</p>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="page-chapter" aria-labelledby="about-principles">
+          <h2 id="about-principles" className="section-title" data-reveal style={{ ['--reveal-delay' as string]: '60ms' }}>
+            Design principles in practice
+          </h2>
+          <div className="accordion-list">
+            {principles.map((item, index) => (
+              <details key={item.title} className="accordion-item" data-reveal style={{ ['--reveal-delay' as string]: `${100 + index * 70}ms` }}>
+                <summary>{item.title}</summary>
+                <p>{item.copy}</p>
+              </details>
+            ))}
+          </div>
+        </section>
       </section>
     </Container>
   );
