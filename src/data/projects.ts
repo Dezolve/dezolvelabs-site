@@ -76,7 +76,7 @@ export const projects: Project[] = [
     oneLiner: 'Hydration habit app with simple, mindful tracking.',
     description:
       'Refreshly is a calm hydration app built around one-tap logging, gentle reminders, and small daily goals that make healthy routines easier to keep.',
-    status: 'Building',
+    status: 'Live',
     links: {
       primary: 'https://refreshly.app',
       primaryLabel: 'Visit Refreshly.app',

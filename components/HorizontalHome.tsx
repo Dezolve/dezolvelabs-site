@@ -314,10 +314,10 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
             Projects
           </p>
           <h2 className="section-title" data-reveal style={{ ['--reveal-delay' as string]: '90ms' }}>
-            Vertical scroll drives a horizontal project gallery.
+            Our Projects
           </h2>
           <p className="section-copy" data-reveal style={{ ['--reveal-delay' as string]: '140ms' }}>
-            On desktop, keep scrolling down to move left to right through current and upcoming product tracks.
+            Live products, current builds, and future tracks.
           </p>
         </div>
 
