@@ -22,13 +22,60 @@ export type Project = {
   }>;
   visuals: {
     logo: string;
+    logoIcon: 'Flame' | 'Bookmark' | 'Droplets';
     preview: string;
     gradientFrom: string;
     gradientTo: string;
+    logoBackground?: string;
   };
 };
 
 export const projects: Project[] = [
+  {
+    slug: 'manacamp',
+    name: 'ManaCamp',
+    oneLiner: 'Latest project: a modern community platform for channels, sessions, and live collaboration.',
+    description:
+      'ManaCamp is a massive community platform that brings channels, DMs, presence, voice, video, screen sharing, bots, and sessions into one real-time space. Windows is available now, with iOS rolling out next.',
+    status: 'Building',
+    links: {
+      primary: 'https://manacamp.com',
+      primaryLabel: 'Visit ManaCamp.com',
+      secondary: 'https://manacamp.com/download',
+      secondaryLabel: 'Windows download & iOS updates',
+    },
+    tags: ['Latest', 'Windows', 'iOS', 'Community Platform'],
+    features: [
+      {
+        title: 'Unified community spaces',
+        detail: 'Run channels, direct messages, and live sessions together in one coordinated experience.',
+        icon: '/icons/share.svg',
+      },
+      {
+        title: 'Real-time voice and video',
+        detail: 'Jump from chat to voice, video, and screen sharing instantly when conversations need more context.',
+        icon: '/icons/clarity.svg',
+      },
+      {
+        title: 'Cross-platform momentum',
+        detail: 'Windows is available now, and iOS access is actively being expanded for the next release wave.',
+        icon: '/icons/focus.svg',
+      },
+    ],
+    extraLinks: [
+      { label: 'Download', href: 'https://manacamp.com/download' },
+      { label: 'Support', href: 'https://manacamp.com/support' },
+      { label: 'Privacy', href: 'https://manacamp.com/privacy' },
+    ],
+    visuals: {
+      logo: '/projects/manacamp-mark.svg',
+      logoIcon: 'Flame',
+      preview: '/projects/manacamp-preview.svg',
+      gradientFrom: '#4c95ff',
+      gradientTo: '#ff8b3d',
+      logoBackground: 'transparent',
+    },
+  },
   {
     slug: 'favstir',
     name: 'FavStir',
@@ -65,6 +112,7 @@ export const projects: Project[] = [
     ],
     visuals: {
       logo: '/projects/favstir-mark.svg',
+      logoIcon: 'Bookmark',
       preview: '/projects/favstir-preview.svg',
       gradientFrom: '#2d6fff',
       gradientTo: '#16c6b6',
@@ -107,6 +155,7 @@ export const projects: Project[] = [
     ],
     visuals: {
       logo: '/projects/refreshly-mark.svg',
+      logoIcon: 'Droplets',
       preview: '/projects/refreshly-preview.svg',
       gradientFrom: '#2558db',
       gradientTo: '#1ac1bc',

@@ -1,0 +1,67 @@
+<svg width="600" height="1240" viewBox="0 0 600 1240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="0" x2="560" y2="1240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121F43" />
+      <stop offset="0.45" stop-color="#0A1430" />
+      <stop offset="1" stop-color="#090F24" />
+    </linearGradient>
+    <linearGradient id="accentBlue" x1="140" y1="130" x2="470" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CC6FF" />
+      <stop offset="1" stop-color="#4C95FF" />
+    </linearGradient>
+    <linearGradient id="accentWarm" x1="370" y1="210" x2="550" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB771" />
+      <stop offset="1" stop-color="#FF8B3D" />
+    </linearGradient>
+    <filter id="blurA" x="20" y="80" width="500" height="500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="70" />
+    </filter>
+    <filter id="blurB" x="250" y="120" width="360" height="360" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="54" />
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="600" height="1240" rx="56" fill="url(#bg)" />
+
+  <g filter="url(#blurA)" opacity="0.48">
+    <circle cx="270" cy="330" r="140" fill="url(#accentBlue)" />
+  </g>
+  <g filter="url(#blurB)" opacity="0.48">
+    <circle cx="430" cy="280" r="86" fill="url(#accentWarm)" />
+  </g>
+
+  <rect x="52" y="78" width="496" height="1084" rx="38" fill="rgba(6,12,28,0.62)" stroke="rgba(124,198,255,0.24)" />
+
+  <rect x="84" y="116" width="432" height="74" rx="22" fill="rgba(16,29,58,0.84)" stroke="rgba(124,198,255,0.2)" />
+  <circle cx="126" cy="153" r="8" fill="#FF8B3D" />
+  <circle cx="151" cy="153" r="8" fill="#79C7FF" />
+  <circle cx="176" cy="153" r="8" fill="#6B84FF" />
+  <text x="478" y="158" text-anchor="end" fill="#9AA9C7" font-family="Arial, sans-serif" font-size="18" letter-spacing="0.14em">LIVE</text>
+
+  <rect x="84" y="218" width="128" height="840" rx="26" fill="rgba(14,25,50,0.85)" stroke="rgba(124,198,255,0.18)" />
+  <rect x="102" y="246" width="92" height="44" rx="14" fill="rgba(124,198,255,0.22)" />
+  <rect x="102" y="306" width="92" height="44" rx="14" fill="rgba(255,255,255,0.06)" />
+  <rect x="102" y="366" width="92" height="44" rx="14" fill="rgba(255,255,255,0.06)" />
+  <rect x="102" y="426" width="92" height="44" rx="14" fill="rgba(255,255,255,0.06)" />
+
+  <rect x="232" y="218" width="284" height="840" rx="26" fill="rgba(10,18,40,0.78)" stroke="rgba(124,198,255,0.18)" />
+
+  <text x="260" y="272" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700"># general</text>
+  <text x="260" y="306" fill="#9AA9C7" font-family="Arial, sans-serif" font-size="18">42 online now</text>
+
+  <rect x="258" y="336" width="232" height="120" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(124,198,255,0.16)" />
+  <circle cx="286" cy="370" r="14" fill="#79C7FF" />
+  <text x="312" y="376" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="20" font-weight="600">Kai</text>
+  <text x="258" y="412" fill="#C2CDE4" font-family="Arial, sans-serif" font-size="17">Voice room is open for tonight's run.</text>
+
+  <rect x="258" y="478" width="232" height="120" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,139,61,0.2)" />
+  <circle cx="286" cy="512" r="14" fill="#FF8B3D" />
+  <text x="312" y="518" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="20" font-weight="600">Mira</text>
+  <text x="258" y="554" fill="#C2CDE4" font-family="Arial, sans-serif" font-size="17">Session agenda and bot commands pinned.</text>
+
+  <rect x="258" y="858" width="232" height="150" rx="22" fill="rgba(13,24,49,0.92)" stroke="rgba(124,198,255,0.22)" />
+  <text x="278" y="905" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="20" font-weight="700">Windows live now</text>
+  <text x="278" y="940" fill="#9AA9C7" font-family="Arial, sans-serif" font-size="17">iOS release in progress</text>
+  <rect x="278" y="962" width="174" height="30" rx="14" fill="rgba(124,198,255,0.16)" />
+  <text x="365" y="983" text-anchor="middle" fill="#DDF1FF" font-family="Arial, sans-serif" font-size="15">Join iOS waitlist</text>
+</svg>

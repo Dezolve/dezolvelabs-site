@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
+import { Bookmark, Droplets, Flame } from 'lucide-react';
 import type { Project } from '@/src/data/projects';
 
 type ProjectCardProps = {
@@ -20,15 +20,22 @@ export function ProjectCard({ project, revealDelay = 100 }: ProjectCardProps) {
   } as CSSProperties;
 
   const logoStyle = {
-    background: `linear-gradient(135deg, ${project.visuals.gradientFrom}, ${project.visuals.gradientTo})`,
+    background: project.visuals.logoBackground ?? `linear-gradient(135deg, ${project.visuals.gradientFrom}, ${project.visuals.gradientTo})`,
   } as CSSProperties;
+
+  const LogoIcon =
+    project.visuals.logoIcon === 'Flame'
+      ? Flame
+      : project.visuals.logoIcon === 'Bookmark'
+        ? Bookmark
+        : Droplets;
 
   return (
     <article className="project-card" data-reveal style={cardStyle}>
       <header className="project-card-head">
         <div className="project-brand">
           <span className="project-logo" style={logoStyle} aria-hidden="true">
-            <Image src={project.visuals.logo} alt="" width={28} height={28} />
+            <LogoIcon size={28} strokeWidth={2.1} />
           </span>
           <h3>{project.name}</h3>
         </div>

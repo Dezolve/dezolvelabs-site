@@ -32,7 +32,8 @@ export default function ProjectsPage() {
           </h1>
           <p className="page-copy" data-reveal style={{ ['--reveal-delay' as string]: '140ms' }}>
             Each project is designed as a focused system with intentional interaction, strong visual hierarchy, and room to
-            evolve without interface sprawl.
+            evolve without interface sprawl. ManaCamp is our latest major build, with Windows available now and iOS in
+            active rollout.
           </p>
         </header>
 

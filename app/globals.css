@@ -669,6 +669,7 @@ textarea {
   display: grid;
   place-items: center;
   border: 1px solid rgba(236, 247, 255, 0.44);
+  color: #f4f7fb;
 }
 
 .project-status {

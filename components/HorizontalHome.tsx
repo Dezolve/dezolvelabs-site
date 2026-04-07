@@ -317,7 +317,7 @@ export function HorizontalHome({ projects }: HorizontalHomeProps) {
             Our Projects
           </h2>
           <p className="section-copy" data-reveal style={{ ['--reveal-delay' as string]: '140ms' }}>
-            Live products, current builds, and future tracks.
+            Live products, current builds, and future tracks, led by our latest project ManaCamp.
           </p>
         </div>
 
