@@ -1,9 +1,15 @@
+export type ProjectStatus = 'Live' | 'In Development' | 'In Research';
+
 export type Project = {
   slug: string;
   name: string;
-  description: string;
+  category: string;
+  status: ProjectStatus;
   oneLiner: string;
-  status: 'Live' | 'Building';
+  description: string;
+  portfolioFit: string;
+  whyItExists: string;
+  whyBelongs: string;
   links: {
     primary: string;
     primaryLabel: string;
@@ -34,31 +40,38 @@ export const projects: Project[] = [
   {
     slug: 'manacamp',
     name: 'ManaCamp',
-    oneLiner: 'Latest project: a modern community platform for channels, sessions, and live collaboration.',
+    category: 'Real-time communication platform',
+    status: 'In Development',
+    oneLiner: 'A presence-first platform for channels, sessions, voice, and live collaboration.',
     description:
-      'ManaCamp is a massive community platform that brings channels, DMs, presence, voice, video, screen sharing, bots, and sessions into one real-time space. Windows is available now, with iOS rolling out next.',
-    status: 'Building',
+      'ManaCamp is a communication product focused on richer digital presence and coordinated real-time interaction across channels, sessions, voice, and live collaboration.',
+    portfolioFit:
+      'Represents the company’s long-term interest in richer digital presence and modern communication systems.',
+    whyItExists:
+      'ManaCamp exists to make online communication feel more present, more coordinated, and more useful when conversation needs to move beyond static feeds and fragmented tools.',
+    whyBelongs:
+      'ManaCamp represents Dezolve Labs’ long-term interest in communication systems, digital presence, and richer real-time interaction.',
     links: {
       primary: 'https://manacamp.com',
-      primaryLabel: 'Visit ManaCamp.com',
+      primaryLabel: 'Visit ManaCamp',
       secondary: 'https://manacamp.com/download',
-      secondaryLabel: 'Windows download & iOS updates',
+      secondaryLabel: 'Windows download',
     },
-    tags: ['Latest', 'Windows', 'iOS', 'Community Platform'],
+    tags: ['Communication', 'Presence', 'Live Collaboration'],
     features: [
       {
-        title: 'Unified community spaces',
-        detail: 'Run channels, direct messages, and live sessions together in one coordinated experience.',
+        title: 'Presence-first structure',
+        detail: 'Channels, sessions, and live spaces are shaped to feel coordinated instead of fragmented.',
         icon: '/icons/share.svg',
       },
       {
-        title: 'Real-time voice and video',
-        detail: 'Jump from chat to voice, video, and screen sharing instantly when conversations need more context.',
+        title: 'Real-time interaction',
+        detail: 'Voice, live collaboration, and richer context help conversations move naturally when text is not enough.',
         icon: '/icons/clarity.svg',
       },
       {
-        title: 'Cross-platform momentum',
-        detail: 'Windows is available now, and iOS access is actively being expanded for the next release wave.',
+        title: 'Room to grow',
+        detail: 'The product is being built as a long-horizon communication system rather than a short-cycle feature launch.',
         icon: '/icons/focus.svg',
       },
     ],
@@ -71,37 +84,43 @@ export const projects: Project[] = [
       logo: '/projects/manacamp-mark.svg',
       logoIcon: 'Flame',
       preview: '/projects/manacamp-preview.svg',
-      gradientFrom: '#4c95ff',
-      gradientTo: '#ff8b3d',
+      gradientFrom: '#5b8cff',
+      gradientTo: '#2fb6d2',
       logoBackground: 'transparent',
     },
   },
   {
     slug: 'favstir',
     name: 'FavStir',
-    oneLiner: 'Curated list sharing built for real recommendations.',
-    description:
-      'FavStir helps you create and share curated recommendation lists for restaurants, movies, and places, privately and without noisy feeds or algorithmic clutter.',
+    category: 'Curated recommendation sharing',
     status: 'Live',
+    oneLiner: 'A quieter way to collect and share trusted recommendations through thoughtful list-based experiences.',
+    description:
+      'FavStir is a recommendation-sharing product built around trust, restraint, and signal over noise, giving people a calmer way to collect and pass along what they genuinely recommend.',
+    portfolioFit: 'Reflects a belief in signal-over-noise consumer products.',
+    whyItExists:
+      'FavStir exists because useful recommendations are often buried inside noisy social patterns. The product gives that behavior a clearer and more intentional home.',
+    whyBelongs:
+      'FavStir represents the company’s interest in quieter, higher-signal consumer experiences built around trust and usefulness.',
     links: {
       primary: 'https://favstir.com',
-      primaryLabel: 'Visit FavStir.com',
+      primaryLabel: 'Visit FavStir',
     },
-    tags: ['Next.js', 'Web App'],
+    tags: ['Consumer Product', 'Recommendations', 'Signal Over Noise'],
     features: [
       {
-        title: 'Curated collections',
-        detail: 'Build tidy lists for places, food spots, and entertainment picks with clear context.',
+        title: 'Thoughtful list sharing',
+        detail: 'Recommendations are organized as useful collections instead of disposable social posts.',
         icon: '/icons/curation.svg',
       },
       {
-        title: 'Private sharing',
-        detail: 'Send recommendations directly to friends and family without social-feed noise.',
+        title: 'Trusted distribution',
+        detail: 'The product is built for sharing recommendations with people you actually know and trust.',
         icon: '/icons/share.svg',
       },
       {
-        title: 'Signal over algorithm',
-        detail: 'Keep recommendations practical and relevant instead of engagement-driven.',
+        title: 'Calm product behavior',
+        detail: 'Restraint in the interface keeps attention on the quality of the recommendation itself.',
         icon: '/icons/focus.svg',
       },
     ],
@@ -114,38 +133,44 @@ export const projects: Project[] = [
       logo: '/projects/favstir-mark.svg',
       logoIcon: 'Bookmark',
       preview: '/projects/favstir-preview.svg',
-      gradientFrom: '#2d6fff',
-      gradientTo: '#16c6b6',
+      gradientFrom: '#4b73ff',
+      gradientTo: '#18b8a8',
     },
   },
   {
     slug: 'refreshly',
     name: 'Refreshly',
-    oneLiner: 'Hydration habit app with simple, mindful tracking.',
-    description:
-      'Refreshly is a calm hydration app built around one-tap logging, gentle reminders, and small daily goals that make healthy routines easier to keep.',
+    category: 'Health and wellness utility',
     status: 'Live',
+    oneLiner: 'A hydration product designed around low-friction tracking, calm interaction, and daily usefulness.',
+    description:
+      'Refreshly is a focused wellness utility that helps people track hydration with as little friction as possible, emphasizing calm interaction and practical routine support.',
+    portfolioFit: 'Shows the value of focused utility software done with care.',
+    whyItExists:
+      'Refreshly exists to prove that small daily-use utilities can earn long-term relevance when they are simple, clear, and genuinely easy to return to.',
+    whyBelongs:
+      'Refreshly represents the value of focused utility software designed to become part of a daily routine.',
     links: {
       primary: 'https://refreshly.app',
-      primaryLabel: 'Visit Refreshly.app',
+      primaryLabel: 'Visit Refreshly',
       secondary: 'https://refreshly.app',
-      secondaryLabel: 'App Store / Play links',
+      secondaryLabel: 'App links',
     },
-    tags: ['Mobile', 'Health & Wellness'],
+    tags: ['Utility Software', 'Wellness', 'Daily Habit'],
     features: [
       {
-        title: 'One-tap logging',
-        detail: 'Capture water intake quickly without interrupts or complex setup.',
+        title: 'Low-friction logging',
+        detail: 'Tracking stays quick and obvious so the product supports the habit instead of interrupting it.',
         icon: '/icons/drop.svg',
       },
       {
-        title: 'Gentle reminders',
-        detail: 'Receive calm nudges that encourage consistency without pressure.',
+        title: 'Calm reminders',
+        detail: 'Prompts are designed to be supportive and useful rather than loud or gamified.',
         icon: '/icons/reminder.svg',
       },
       {
-        title: 'Daily momentum',
-        detail: 'Track small goals and progress streaks with a low-stress interface.',
+        title: 'Routine-friendly design',
+        detail: 'The product is meant to fit naturally into everyday use and build quiet long-term value.',
         icon: '/icons/streak.svg',
       },
     ],
@@ -157,8 +182,8 @@ export const projects: Project[] = [
       logo: '/projects/refreshly-mark.svg',
       logoIcon: 'Droplets',
       preview: '/projects/refreshly-preview.svg',
-      gradientFrom: '#2558db',
-      gradientTo: '#1ac1bc',
+      gradientFrom: '#3567dd',
+      gradientTo: '#16b6b1',
     },
   },
 ];

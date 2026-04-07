@@ -7,13 +7,13 @@ const siteUrl = 'https://dezolvelabs.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Dezolve Labs',
-    template: '%s | Dezolve Labs',
+    default: 'Dezolve Labs — Software Studio and Holding Company',
+    template: '%s — Dezolve Labs',
   },
-  description: 'Dezolve Labs dissolves complexity into simple, meaningful digital experiences.',
+  description: 'Dezolve Labs is a software studio and holding company behind a growing portfolio of focused digital products.',
   openGraph: {
-    title: 'Dezolve Labs',
-    description: 'Studio-built software products focused on clarity, calm interactions, and practical outcomes.',
+    title: 'Dezolve Labs — Software Studio and Holding Company',
+    description: 'Dezolve Labs is a software studio and holding company behind a growing portfolio of focused digital products.',
     url: siteUrl,
     siteName: 'Dezolve Labs',
     locale: 'en_US',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dezolve Labs',
-    description: 'Dissolving complexity into simple, meaningful digital experiences.',
+    title: 'Dezolve Labs — Software Studio and Holding Company',
+    description: 'Dezolve Labs is a software studio and holding company behind a growing portfolio of focused digital products.',
   },
 };
 

@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from '@/components/Container';
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/studio', label: 'Studio' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -22,29 +22,12 @@ function isActivePath(pathname: string, href: string) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isHome = pathname === '/';
-
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(() => {
-    if (typeof window === 'undefined') {
-      return false;
-    }
-
-    const userPreference = window.localStorage.getItem('dl-motion');
-    const systemPreference = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    return userPreference ? userPreference === 'reduced' : systemPreference;
-  });
-
-  useEffect(() => {
-    document.documentElement.dataset.motion = reducedMotion ? 'reduced' : 'full';
-    window.localStorage.setItem('dl-motion', reducedMotion ? 'reduced' : 'full');
-  }, [reducedMotion]);
 
   useEffect(() => {
     const onScroll = () => {
-      setIsScrolled(window.scrollY > 14);
+      setIsScrolled(window.scrollY > 10);
     };
 
     onScroll();
@@ -81,20 +64,15 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
-  const headerClassName = useMemo(() => {
-    const base = 'site-header';
-    const state = isHome && !isScrolled ? 'site-header-overlay' : 'site-header-solid';
-    const menuState = menuOpen ? 'is-menu-open' : '';
-
-    return [base, state, menuState].filter(Boolean).join(' ');
-  }, [isHome, isScrolled, menuOpen]);
-
   return (
-    <header className={headerClassName}>
+    <header className={`site-header ${isScrolled || pathname !== '/' || menuOpen ? 'site-header-solid' : 'site-header-overlay'} ${menuOpen ? 'is-menu-open' : ''}`}>
       <Container className="site-header-inner">
         <Link href="/" className="brand" aria-label="Dezolve Labs home">
           <span className="brand-mark" aria-hidden="true" />
-          <span>Dezolve Labs</span>
+          <span className="brand-lockup">
+            <strong>Dezolve Labs</strong>
+            <em>Software studio and holding company</em>
+          </span>
         </Link>
 
         <nav className="site-nav" aria-label="Primary">
@@ -110,16 +88,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="header-controls">
-          <button
-            type="button"
-            className="motion-toggle"
-            onClick={() => setReducedMotion((value) => !value)}
-            aria-pressed={reducedMotion}
-            aria-label="Toggle reduced motion mode"
-          >
-            {reducedMotion ? 'Motion Off' : 'Motion On'}
-          </button>
-
           <button
             type="button"
             className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
@@ -151,7 +119,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="mobile-menu-meta">
-          <p>Dissolving complexity into elegant experiences.</p>
+          <p>The studio behind a growing portfolio of focused digital products.</p>
           <div className="mobile-menu-socials" aria-label="Social links">
             <a href="https://www.linkedin.com/company/dezolvelabs" target="_blank" rel="noreferrer">
               LinkedIn
@@ -159,8 +127,8 @@ export function SiteHeader() {
             <a href="https://x.com/dezolvelabs" target="_blank" rel="noreferrer">
               X
             </a>
-            <a href="https://www.youtube.com/@dezolvelabs" target="_blank" rel="noreferrer">
-              YouTube
+            <a href="https://github.com/Dezolve" target="_blank" rel="noreferrer">
+              GitHub
             </a>
           </div>
         </div>

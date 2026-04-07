@@ -12,7 +12,7 @@ export default function NotFound() {
           Page not found
         </h1>
         <p data-reveal style={{ ['--reveal-delay' as string]: '120ms' }}>
-          The requested route does not exist in the Dezolve Labs site map.
+          The requested route does not exist in the Dezolve Labs company site.
         </p>
         <Link href="/" className="button button-secondary" style={{ width: 'fit-content' }}>
           Return home

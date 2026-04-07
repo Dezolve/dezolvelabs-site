@@ -4,7 +4,7 @@ import { projects } from '@/src/data/projects';
 const baseUrl = 'https://dezolvelabs.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ['', '/about', '/contact', '/projects', '/privacy', '/terms'].map((path) => ({
+  const staticRoutes = ['', '/portfolio', '/studio', '/contact', '/privacy', '/terms'].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const projectRoutes = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
+    url: `${baseUrl}/portfolio/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,

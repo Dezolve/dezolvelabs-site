@@ -8,10 +8,6 @@ type ProjectCardProps = {
   revealDelay?: number;
 };
 
-function getStatusLabel(status: Project['status']) {
-  return status === 'Building' ? 'In Development' : 'Live';
-}
-
 export function ProjectCard({ project, revealDelay = 100 }: ProjectCardProps) {
   const cardStyle = {
     ['--reveal-delay' as string]: `${revealDelay}ms`,
@@ -31,27 +27,28 @@ export function ProjectCard({ project, revealDelay = 100 }: ProjectCardProps) {
         : Droplets;
 
   return (
-    <article className="project-card" data-reveal style={cardStyle}>
-      <header className="project-card-head">
-        <div className="project-brand">
-          <span className="project-logo" style={logoStyle} aria-hidden="true">
+    <article className="portfolio-card surface-card" data-reveal style={cardStyle}>
+      <header className="portfolio-card-head">
+        <div className="project-branding">
+          <span className="project-logo-badge" style={logoStyle} aria-hidden="true">
             <LogoIcon size={28} strokeWidth={2.1} />
           </span>
-          <h3>{project.name}</h3>
+          <div>
+            <h3>{project.name}</h3>
+            <p className="portfolio-category">{project.category}</p>
+          </div>
         </div>
-        <p className="project-status">{getStatusLabel(project.status)}</p>
+        <span className="status-pill">{project.status}</span>
       </header>
 
-      <p>{project.oneLiner}</p>
+      <p className="portfolio-summary">{project.description}</p>
+      <p className="portfolio-fit">
+        <strong>Portfolio fit</strong>
+        {project.portfolioFit}
+      </p>
 
-      <div className="project-tags" aria-label={`${project.name} technologies`}>
-        {project.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
-        ))}
-      </div>
-
-      <Link href={`/projects/${project.slug}`} className="project-cta" aria-label={`View ${project.name} details`}>
-        View project
+      <Link href={`/portfolio/${project.slug}`} className="button button-secondary portfolio-link" aria-label={`View ${project.name} details`}>
+        View Portfolio Entry
       </Link>
     </article>
   );

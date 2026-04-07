@@ -12,11 +12,10 @@ type SiteShellProps = {
 
 export function SiteShell({ children }: SiteShellProps) {
   const pathname = usePathname();
-  const isHome = pathname === '/';
-  const mainClassName = isHome ? 'main-shell main-shell-home' : 'main-shell';
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.dataset.motion = prefersReduced ? 'reduced' : 'full';
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -49,8 +48,8 @@ export function SiteShell({ children }: SiteShellProps) {
   return (
     <>
       <SiteHeader />
-      <main className={mainClassName}>{children}</main>
-      {!isHome ? <SiteFooter /> : null}
+      <main className={pathname === '/' ? 'main-shell main-shell-home' : 'main-shell'}>{children}</main>
+      <SiteFooter />
     </>
   );
 }
