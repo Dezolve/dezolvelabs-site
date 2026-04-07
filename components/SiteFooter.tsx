@@ -8,17 +8,17 @@ export function SiteFooter() {
       <Container className="site-footer-inner">
         <section className="footer-intro" aria-labelledby="footer-company-heading">
           <p className="kicker">Dezolve Labs</p>
-          <h2 id="footer-company-heading">Built for a durable portfolio of software ventures.</h2>
+          <h2 id="footer-company-heading">Built for long-term software products.</h2>
           <p>
-            Dezolve Labs is a software studio and holding company building focused digital products with long-term
-            intent.
+            Dezolve Labs is a software studio and holding company building focused products across utility, business,
+            and digital communication.
           </p>
         </section>
 
         <div className="footer-grid">
           <div className="footer-column">
             <p className="footer-column-title">Company</p>
-            <p>The strategic home behind a growing portfolio of focused software products.</p>
+            <p>The strategic home behind a product portfolio built with clarity, usefulness, and long-term intent.</p>
           </div>
 
           <nav className="footer-column" aria-label="Footer navigation">

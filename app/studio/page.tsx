@@ -6,7 +6,7 @@ const studioActivities = [
   'Launches and grows portfolio ventures',
   'Incubates new ideas',
   'Maintains a high standard for product clarity and design quality',
-  'Explores selective strategic opportunities where there is strong fit',
+  'Builds across utility, business software, and digital communication',
 ];
 
 const operatingPrinciples = [
@@ -49,7 +49,7 @@ export default function StudioPage() {
             A studio structure built for long-term software products.
           </h1>
           <p className="page-copy max-copy-width" data-reveal>
-            Dezolve Labs is the company behind a growing portfolio of software ventures. It exists to build products
+            Dezolve Labs is the company behind a growing portfolio of software products. It exists to build products
             internally, support them with a consistent standard, and develop them into durable businesses over time.
           </p>
         </section>
@@ -126,8 +126,9 @@ export default function StudioPage() {
               </h2>
             </div>
             <p className="page-copy max-copy-width">
-              The long-term goal is to build a durable portfolio of software ventures united by strong standards,
-              practical value, and a clear point of view on product quality.
+              The long-term goal is to build a durable portfolio of software products united by strong standards,
+              practical value, and a clear point of view on what good software should feel like. That includes small
+              utility products, pragmatic business tools, and larger communication-platform ambitions led by ManaCamp.
             </p>
           </div>
         </section>

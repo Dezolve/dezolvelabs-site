@@ -119,7 +119,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="mobile-menu-meta">
-          <p>The studio behind a growing portfolio of focused digital products.</p>
+          <p>Focused software products across utility, business, and digital communication.</p>
           <div className="mobile-menu-socials" aria-label="Social links">
             <a href="https://www.linkedin.com/company/dezolvelabs" target="_blank" rel="noreferrer">
               LinkedIn

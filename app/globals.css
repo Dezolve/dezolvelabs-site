@@ -319,14 +319,9 @@ textarea {
   gap: clamp(1rem, 2vw, 1.5rem);
 }
 
-.portfolio-card,
-.principle-card,
-.stat-card {
-  grid-column: span 4;
-  padding: 1.5rem;
-}
-
 .portfolio-card {
+  grid-column: span 6;
+  padding: 1.5rem;
   --card-accent-from: #4b73ff;
   --card-accent-to: #18b8a8;
   gap: 1rem;
@@ -335,6 +330,12 @@ textarea {
     border-color 300ms ease,
     background-color 300ms ease,
     box-shadow 300ms ease;
+}
+
+.principle-card,
+.stat-card {
+  grid-column: span 4;
+  padding: 1.5rem;
 }
 
 .portfolio-card::before,

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     default: 'Dezolve Labs — Software Studio and Holding Company',
     template: '%s — Dezolve Labs',
   },
-  description: 'Dezolve Labs is a software studio and holding company behind a growing portfolio of focused digital products.',
+  description: 'Dezolve Labs builds focused software products across utility, business, and digital communication.',
   openGraph: {
     title: 'Dezolve Labs — Software Studio and Holding Company',
-    description: 'Dezolve Labs is a software studio and holding company behind a growing portfolio of focused digital products.',
+    description: 'Dezolve Labs builds focused software products across utility, business, and digital communication.',
     url: siteUrl,
     siteName: 'Dezolve Labs',
     locale: 'en_US',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Dezolve Labs — Software Studio and Holding Company',
-    description: 'Dezolve Labs is a software studio and holding company behind a growing portfolio of focused digital products.',
+    description: 'Dezolve Labs builds focused software products across utility, business, and digital communication.',
   },
 };
 

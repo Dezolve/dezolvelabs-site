@@ -1,4 +1,4 @@
-export type ProjectStatus = 'Live' | 'In Development' | 'In Research';
+export type ProjectStatus = 'Live' | 'In Development' | 'In Research' | 'Internal';
 
 export type Project = {
   slug: string;
@@ -28,7 +28,7 @@ export type Project = {
   }>;
   visuals: {
     logo: string;
-    logoIcon: 'Flame' | 'Bookmark' | 'Droplets';
+    logoIcon: 'Flame' | 'Bookmark' | 'Droplets' | 'Store';
     preview: string;
     gradientFrom: string;
     gradientTo: string;
@@ -42,13 +42,12 @@ export const projects: Project[] = [
     name: 'ManaCamp',
     category: 'Real-time communication platform',
     status: 'In Development',
-    oneLiner: 'A presence-first platform for channels, sessions, voice, and live collaboration.',
-    description:
-      'ManaCamp is a communication product focused on richer digital presence and coordinated real-time interaction across channels, sessions, voice, and live collaboration.',
+    oneLiner: 'Dezolve Labs’ flagship long-term platform vision for presence, expression, and togetherness.',
+    description: 'A presence-first communication platform for channels, sessions, voice, and live collaboration.',
     portfolioFit:
       'Represents the company’s long-term interest in richer digital presence and modern communication systems.',
     whyItExists:
-      'ManaCamp exists to make online communication feel more present, more coordinated, and more useful when conversation needs to move beyond static feeds and fragmented tools.',
+      'ManaCamp is Dezolve Labs’ flagship long-term platform vision, built to make digital communication feel more present, more expressive, and more useful when conversation needs to move beyond fragmented tools.',
     whyBelongs:
       'ManaCamp represents Dezolve Labs’ long-term interest in communication systems, digital presence, and richer real-time interaction.',
     links: {
@@ -94,9 +93,8 @@ export const projects: Project[] = [
     name: 'FavStir',
     category: 'Curated recommendation sharing',
     status: 'Live',
-    oneLiner: 'A quieter way to collect and share trusted recommendations through thoughtful list-based experiences.',
-    description:
-      'FavStir is a recommendation-sharing product built around trust, restraint, and signal over noise, giving people a calmer way to collect and pass along what they genuinely recommend.',
+    oneLiner: 'A foundational web product centered on curated sharing and list-based social utility.',
+    description: 'A quieter way to collect and share trusted recommendations through thoughtful list-based experiences.',
     portfolioFit: 'Reflects a belief in signal-over-noise consumer products.',
     whyItExists:
       'FavStir exists because useful recommendations are often buried inside noisy social patterns. The product gives that behavior a clearer and more intentional home.',
@@ -142,9 +140,8 @@ export const projects: Project[] = [
     name: 'Refreshly',
     category: 'Health and wellness utility',
     status: 'Live',
-    oneLiner: 'A hydration product designed around low-friction tracking, calm interaction, and daily usefulness.',
-    description:
-      'Refreshly is a focused wellness utility that helps people track hydration with as little friction as possible, emphasizing calm interaction and practical routine support.',
+    oneLiner: 'A modern hydration tracker designed for simplicity, motivation, and daily ease of use.',
+    description: 'A hydration product designed around low-friction tracking, calm interaction, and daily usefulness.',
     portfolioFit: 'Shows the value of focused utility software done with care.',
     whyItExists:
       'Refreshly exists to prove that small daily-use utilities can earn long-term relevance when they are simple, clear, and genuinely easy to return to.',
@@ -184,6 +181,53 @@ export const projects: Project[] = [
       preview: '/projects/refreshly-preview.svg',
       gradientFrom: '#3567dd',
       gradientTo: '#16b6b1',
+    },
+  },
+  {
+    slug: 'nexus-pos',
+    name: 'Nexus POS',
+    category: 'Point-of-sale software',
+    status: 'Internal',
+    oneLiner: 'Fast point-of-sale software built for focused retail operations.',
+    description:
+      'A fast, focused point-of-sale system built in React and Electron for small convenience-store operations.',
+    portfolioFit:
+      'Reflects Dezolve Labs’ ability to build pragmatic business software around real operational needs.',
+    whyItExists:
+      'Nexus POS exists to make day-to-day retail workflows faster, clearer, and less fragile for small store operations that depend on dependable software every day.',
+    whyBelongs:
+      'It shows Dezolve Labs’ ability to build practical business software around real operational needs.',
+    links: {
+      primary: '/contact',
+      primaryLabel: 'Contact the Studio',
+      secondary: '/studio',
+      secondaryLabel: 'Explore the Studio',
+    },
+    tags: ['Business Software', 'Electron', 'Retail Operations'],
+    features: [
+      {
+        title: 'Fast transaction flow',
+        detail: 'The interface is built to keep checkout movement quick, legible, and dependable during daily store use.',
+        icon: '/icons/clarity.svg',
+      },
+      {
+        title: 'Focused operational scope',
+        detail: 'It emphasizes the real workflows small convenience-store operators need rather than broad, bloated feature sets.',
+        icon: '/icons/focus.svg',
+      },
+      {
+        title: 'Desktop reliability',
+        detail: 'React and Electron provide a modern interface layer while keeping the product grounded in practical day-to-day operation.',
+        icon: '/icons/share.svg',
+      },
+    ],
+    extraLinks: [],
+    visuals: {
+      logo: '/projects/nexus-pos-mark.svg',
+      logoIcon: 'Store',
+      preview: '/projects/nexus-pos-preview.svg',
+      gradientFrom: '#4d78ff',
+      gradientTo: '#17a4c4',
     },
   },
 ];

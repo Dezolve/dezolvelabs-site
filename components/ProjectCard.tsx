@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
-import { Bookmark, Droplets, Flame } from 'lucide-react';
+import { Bookmark, Droplets, Flame, Store } from 'lucide-react';
 import type { Project } from '@/src/data/projects';
 
 type ProjectCardProps = {
@@ -24,7 +24,9 @@ export function ProjectCard({ project, revealDelay = 100 }: ProjectCardProps) {
       ? Flame
       : project.visuals.logoIcon === 'Bookmark'
         ? Bookmark
-        : Droplets;
+        : project.visuals.logoIcon === 'Store'
+          ? Store
+          : Droplets;
 
   return (
     <article className="portfolio-card surface-card" data-reveal style={cardStyle}>

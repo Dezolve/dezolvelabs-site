@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { ProjectCard } from '@/components/ProjectCard';
 import { projects } from '@/src/data/projects';
@@ -21,8 +20,8 @@ export default function PortfolioPage() {
             A growing portfolio of focused software products.
           </h1>
           <p className="page-copy max-copy-width" data-reveal>
-            Dezolve Labs builds and grows products across communication, utility, and modern digital experience. Each
-            venture reflects a shared standard of clarity, restraint, and long-term product thinking.
+            Dezolve Labs builds and grows software across utility, business, and digital communication. Each product
+            reflects a shared standard of clarity, usefulness, and long-term product thinking.
           </p>
         </section>
 
@@ -34,22 +33,6 @@ export default function PortfolioPage() {
             {projects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} revealDelay={index * 80} />
             ))}
-
-            <article className="portfolio-card surface-card" data-reveal>
-              <div className="portfolio-card-topline">
-                <span className="status-pill">In Research</span>
-                <p className="portfolio-category">Studio incubation</p>
-              </div>
-              <h3>Future Venture</h3>
-              <p>New ideas in active exploration as the portfolio continues to expand.</p>
-              <p className="portfolio-fit">
-                <strong>Portfolio fit</strong>
-                Reinforces that Dezolve Labs is designed to keep building.
-              </p>
-              <Button href="/studio" variant="secondary">
-                Explore the Studio
-              </Button>
-            </article>
           </div>
         </section>
 
@@ -63,13 +46,13 @@ export default function PortfolioPage() {
             </div>
             <div className="two-column-copy">
               <p>
-                Dezolve Labs treats the portfolio as more than a collection of launches. Each product is selected and
-                shaped around the same operating principles: useful scope, strong interaction quality, and the ability to
-                become more valuable over time.
+                The portfolio is intentionally broad in category but consistent in standard. Each product begins with a
+                real use case, is shaped around focused execution, and is built to earn long-term value rather than
+                short-term attention.
               </p>
               <p>
-                The aim is coherence, not volume. Each venture should feel like it belongs inside the same company because
-                the standard behind it is visible.
+                Some products are small and practical. Others are larger, longer-horizon bets. What connects them is the
+                discipline behind how they are built.
               </p>
             </div>
           </div>
@@ -82,8 +65,8 @@ export default function PortfolioPage() {
               The portfolio is still early.
             </h2>
             <p className="page-copy max-copy-width">
-              Dezolve Labs is built to keep exploring new software categories and launching products that fit the
-              company’s long-term thesis.
+              The portfolio is still early, but the direction is clear: build focused software products across categories
+              where utility, quality, and long-term value can compound.
             </p>
           </div>
         </section>

@@ -27,11 +27,11 @@ export default function HomePage() {
             <div className="hero-copy-block" data-reveal>
               <p className="kicker">Software studio and holding company</p>
               <h1 id="home-heading" className="hero-title">
-                The studio behind focused software ventures.
+                Focused software products, built with long-term intent.
               </h1>
               <p className="page-copy hero-copy">
-                Dezolve Labs is the company behind a growing portfolio of software products built with clarity, utility,
-                and long-term ambition.
+                Dezolve Labs builds software across utility, business, and digital communication, creating focused
+                products with clear value today and room to grow over time.
               </p>
               <div className="hero-actions">
                 <Button href="/portfolio">View Portfolio</Button>
@@ -49,8 +49,8 @@ export default function HomePage() {
                 <span className="status-pill">Long-term product focus</span>
               </div>
               <p>
-                Dezolve Labs serves as the strategic home for ventures spanning communication, utility, and modern digital
-                experience.
+                The company portfolio spans practical utility, business software, and long-horizon communication
+                products built to earn staying power.
               </p>
             </aside>
           </div>
@@ -60,14 +60,14 @@ export default function HomePage() {
           <div className="section-heading" data-reveal>
             <p className="kicker">Company</p>
             <h2 id="company-intro-heading" className="section-title max-copy-width">
-              A company built to launch, operate, and grow software products over time.
+              A company built to create products that last.
             </h2>
           </div>
           <div className="two-column-copy" data-reveal>
             <p>
-              Dezolve Labs is the strategic home for a growing portfolio of software ventures. The company builds
-              products internally, supports them with a consistent standard of quality, and develops them with long-term
-              product value in mind.
+              Dezolve Labs is the strategic home for a growing portfolio of software products. Some are practical tools,
+              some are business-focused systems, and some are larger long-term platform bets, but all are built with the
+              same commitment to clarity, usefulness, and thoughtful execution.
             </p>
             <p>
               Rather than functioning as a traditional services business, Dezolve Labs is structured around the work of
@@ -83,7 +83,8 @@ export default function HomePage() {
               Current portfolio
             </h2>
             <p className="page-copy max-copy-width">
-              A growing set of products across communication, utility, and modern digital experience.
+              A growing set of products spanning foundational web experiences, modern mobile utility, business software,
+              and long-term communication platforms.
             </p>
           </div>
 
@@ -91,22 +92,6 @@ export default function HomePage() {
             {projects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} revealDelay={index * 80} />
             ))}
-
-            <article className="portfolio-card surface-card" data-reveal>
-              <div className="portfolio-card-topline">
-                <span className="status-pill">In Research</span>
-                <p className="portfolio-category">Studio incubation</p>
-              </div>
-              <h3>Future Venture</h3>
-              <p>New ideas in active exploration as the portfolio continues to expand.</p>
-              <p className="portfolio-fit">
-                <strong>Portfolio fit</strong>
-                Reinforces that Dezolve Labs is designed to keep building.
-              </p>
-              <Button href="/studio" variant="secondary">
-                Explore the Studio
-              </Button>
-            </article>
           </div>
         </section>
 
@@ -120,12 +105,12 @@ export default function HomePage() {
             </div>
             <div className="two-column-copy">
               <p>
-                The products may serve different needs, but they are built around the same standard: clear utility,
-                focused scope, thoughtful experience design, and room to grow into lasting businesses.
+                Dezolve Labs builds across different categories, but the standard stays the same: focused scope, clear
+                utility, strong product taste, and the intention to create software that becomes more valuable over time.
               </p>
               <p>
-                Dezolve Labs is not built around volume. It is built around conviction, choosing products deliberately and
-                giving them a consistent strategic home.
+                The goal is not to launch everything. It is to build the right products well and give them a durable
+                home.
               </p>
             </div>
           </div>
@@ -138,9 +123,9 @@ export default function HomePage() {
               Built for long-term product ambition.
             </h2>
             <p className="page-copy max-copy-width">
-              Dezolve Labs exists to create a portfolio of software ventures that can grow with clarity and intention over
-              time. The company is designed to keep launching, refining, and supporting products that have real value
-              beyond a single moment or trend.
+              Dezolve Labs is designed to keep building, from practical tools and business software to larger platform
+              bets with long horizons. ManaCamp represents the company’s clearest long-term flagship, while the broader
+              portfolio reflects a steady pattern of shipping useful products with care.
             </p>
           </div>
 
