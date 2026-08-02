@@ -55,10 +55,9 @@ export function ProjectCard({ project, revealDelay = 100 }: ProjectCardProps) {
         </header>
 
         <p className="portfolio-summary">{project.description}</p>
-        <p className="portfolio-fit">{project.portfolioFit}</p>
 
-        <Link href={`/portfolio/${project.slug}`} className="portfolio-link" aria-label={`Explore ${project.name}`}>
-          Explore product <span aria-hidden="true">↗</span>
+        <Link href={`/portfolio/${project.slug}`} className="portfolio-link" aria-label={`View ${project.name}`}>
+          View product <span aria-hidden="true">↗</span>
         </Link>
       </div>
     </article>
