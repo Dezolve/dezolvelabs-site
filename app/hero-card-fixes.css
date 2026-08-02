@@ -1,0 +1,118 @@
+/* Homepage product-card corrections after switching to real screenshots. */
+
+/* The current ManaCamp glyph is intentionally omitted here: at this scale the stylized flame reads ambiguously. */
+.home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child > img[alt=""] {
+  display: none;
+}
+
+.home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
+  max-width: 58%;
+  gap: 1rem;
+}
+
+.home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child > div {
+  margin-top: clamp(2rem, 5vh, 4.5rem);
+}
+
+.home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] h2 {
+  font-size: clamp(2.7rem, 3.35vw, 4.15rem);
+}
+
+img[alt="ManaCamp application interface"] {
+  right: 2%;
+  bottom: 5%;
+  width: 46%;
+  height: 68%;
+  max-height: none;
+  object-fit: cover;
+  object-position: left top;
+  transform: none;
+}
+
+/* Supporting cards now reserve a clean lower zone for the screenshot instead of placing it over the copy. */
+.home-shell-v2 > section:first-child a[href="/portfolio/favstir"] > div:first-child,
+.home-shell-v2 > section:first-child a[href="/portfolio/refreshly"] > div:first-child {
+  width: 100%;
+  padding-right: clamp(1rem, 1.6vw, 1.4rem);
+}
+
+.home-shell-v2 > section:first-child a[href="/portfolio/favstir"] > div:first-child p,
+.home-shell-v2 > section:first-child a[href="/portfolio/refreshly"] > div:first-child p {
+  max-width: 100%;
+  padding-right: 0;
+}
+
+img[alt="Favstir application interface"],
+img[alt="Refreshly application interface"] {
+  left: 1rem;
+  right: auto;
+  top: 55%;
+  bottom: auto;
+  width: calc(100% - 2rem);
+  height: 52%;
+  object-fit: cover;
+  object-position: left top;
+  transform: none;
+}
+
+@media (max-width: 1320px) {
+  .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
+    max-width: 60%;
+  }
+
+  img[alt="ManaCamp application interface"] {
+    width: 44%;
+    height: 64%;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
+    max-width: 62%;
+  }
+
+  .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child > div {
+    margin-top: 1.5rem;
+  }
+
+  img[alt="ManaCamp application interface"] {
+    right: 2%;
+    bottom: 5%;
+    width: 48%;
+    height: 58%;
+  }
+
+  img[alt="Favstir application interface"],
+  img[alt="Refreshly application interface"] {
+    left: 0.75rem;
+    top: 56%;
+    width: calc(100% - 1.5rem);
+    height: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
+    max-width: 66%;
+  }
+
+  .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] h2 {
+    font-size: 2.45rem;
+  }
+
+  img[alt="ManaCamp application interface"] {
+    width: 46%;
+    height: 54%;
+  }
+
+  .home-shell-v2 > section:first-child a[href="/portfolio/favstir"] > div:first-child p,
+  .home-shell-v2 > section:first-child a[href="/portfolio/refreshly"] > div:first-child p {
+    display: none;
+  }
+
+  img[alt="Favstir application interface"],
+  img[alt="Refreshly application interface"] {
+    top: 52%;
+    height: 55%;
+  }
+}
