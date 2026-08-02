@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { ProjectCard } from '@/components/ProjectCard';
+import { getProjectScreenshot, hasRealProjectScreenshot } from '@/src/data/projectScreenshots';
 import { projects } from '@/src/data/projects';
 import styles from './home.module.css';
 
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const [manaCamp, ...supportingProjects] = projects;
   const [favstir, refreshly] = supportingProjects;
+  const manaScreenshot = getProjectScreenshot(manaCamp.slug, manaCamp.visuals.preview);
+  const favstirScreenshot = getProjectScreenshot(favstir.slug, favstir.visuals.preview);
+  const refreshlyScreenshot = getProjectScreenshot(refreshly.slug, refreshly.visuals.preview);
   const spotlightStyle = {
     ['--project-accent-from' as string]: '#5b8cff',
     ['--project-accent-to' as string]: '#ff8b3d',
@@ -96,11 +100,12 @@ export default function HomePage() {
                 <span className={styles.cardLink}>Explore product ↗</span>
               </div>
               <Image
-                src={manaCamp.visuals.preview}
-                alt="ManaCamp product interface preview"
-                width={600}
-                height={1240}
+                src={manaScreenshot}
+                alt="ManaCamp application interface"
+                width={1600}
+                height={1000}
                 className={styles.manaPreview}
+                sizes="(max-width: 720px) 88vw, 46vw"
                 priority
               />
             </Link>
@@ -113,11 +118,12 @@ export default function HomePage() {
                 <p>Trusted recommendations without the noise.</p>
               </div>
               <Image
-                src={favstir.visuals.preview}
-                alt="Favstir product interface preview"
-                width={300}
-                height={620}
+                src={favstirScreenshot}
+                alt="Favstir application interface"
+                width={1200}
+                height={760}
                 className={styles.sidePreview}
+                sizes="(max-width: 720px) 44vw, 18vw"
               />
             </Link>
 
@@ -129,11 +135,12 @@ export default function HomePage() {
                 <p>Hydration tracking designed to stay easy.</p>
               </div>
               <Image
-                src={refreshly.visuals.preview}
-                alt="Refreshly product interface preview"
-                width={300}
-                height={620}
+                src={refreshlyScreenshot}
+                alt="Refreshly application interface"
+                width={1200}
+                height={760}
                 className={styles.sidePreview}
+                sizes="(max-width: 720px) 44vw, 18vw"
               />
             </Link>
           </div>
@@ -170,8 +177,8 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <div className="project-spotlight-visual" aria-hidden="true">
-              <Image src={manaCamp.visuals.preview} alt="" width={600} height={1240} />
+            <div className={`project-spotlight-visual ${hasRealProjectScreenshot(manaCamp.slug) ? 'has-real-preview' : ''}`} aria-hidden="true">
+              <Image src={manaScreenshot} alt="" width={1600} height={1000} sizes="(max-width: 820px) 92vw, 48vw" />
             </div>
           </article>
 
