@@ -6,7 +6,7 @@
 }
 
 .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
-  max-width: 58%;
+  max-width: 60%;
   gap: 1rem;
 }
 
@@ -15,24 +15,51 @@
 }
 
 .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] h2 {
-  font-size: clamp(2.7rem, 3.35vw, 4.15rem);
+  font-size: clamp(2.7rem, 3.25vw, 4rem);
+}
+
+/* Softly separate the copy from the real application capture. */
+.home-shell-v2 > section:first-child a[href="/portfolio/manacamp"]::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 1;
+  width: 58%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(17, 25, 54, 0.98) 0%,
+    rgba(17, 25, 54, 0.72) 18%,
+    rgba(17, 25, 54, 0.18) 43%,
+    transparent 68%
+  );
 }
 
 img[alt="ManaCamp application interface"] {
-  right: 2%;
-  bottom: 5%;
-  width: 46%;
-  height: 68%;
+  right: -1.5%;
+  bottom: 1.5%;
+  z-index: 1;
+  width: 43%;
+  height: 64%;
   max-height: none;
   object-fit: cover;
   object-position: left top;
   transform: none;
 }
 
-/* Supporting cards now reserve a clean lower zone for the screenshot instead of placing it over the copy. */
+/* Supporting cards use true copy/image rows so future text changes cannot create overlap. */
+.home-shell-v2 > section:first-child a[href="/portfolio/favstir"],
+.home-shell-v2 > section:first-child a[href="/portfolio/refreshly"] {
+  grid-template-rows: minmax(0, 54%) minmax(0, 46%);
+}
+
 .home-shell-v2 > section:first-child a[href="/portfolio/favstir"] > div:first-child,
 .home-shell-v2 > section:first-child a[href="/portfolio/refreshly"] > div:first-child {
+  grid-row: 1;
   width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
   padding-right: clamp(1rem, 1.6vw, 1.4rem);
 }
 
@@ -44,65 +71,84 @@ img[alt="ManaCamp application interface"] {
 
 img[alt="Favstir application interface"],
 img[alt="Refreshly application interface"] {
-  left: 1rem;
-  right: auto;
-  top: 55%;
-  bottom: auto;
+  position: relative;
+  inset: auto;
+  grid-row: 2;
+  align-self: stretch;
+  justify-self: stretch;
   width: calc(100% - 2rem);
-  height: 52%;
+  height: calc(100% - 0.7rem);
+  margin: 0 1rem 0.7rem;
   object-fit: cover;
   object-position: left top;
   transform: none;
 }
 
+/* Refreshly benefits from a touch more breathing room above the phone capture. */
+img[alt="Refreshly application interface"] {
+  height: calc(100% - 1rem);
+  margin-top: 0.3rem;
+}
+
 @media (max-width: 1320px) {
   .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
-    max-width: 60%;
+    max-width: 62%;
   }
 
   img[alt="ManaCamp application interface"] {
-    width: 44%;
-    height: 64%;
+    right: -2%;
+    bottom: 1%;
+    width: 41%;
+    height: 61%;
   }
 }
 
 @media (max-width: 720px) {
   .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
-    max-width: 62%;
+    max-width: 64%;
   }
 
   .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child > div {
     margin-top: 1.5rem;
   }
 
+  .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"]::after {
+    width: 62%;
+  }
+
   img[alt="ManaCamp application interface"] {
-    right: 2%;
-    bottom: 5%;
-    width: 48%;
-    height: 58%;
+    right: -3%;
+    bottom: 2%;
+    width: 44%;
+    height: 55%;
+  }
+
+  .home-shell-v2 > section:first-child a[href="/portfolio/favstir"],
+  .home-shell-v2 > section:first-child a[href="/portfolio/refreshly"] {
+    grid-template-rows: minmax(0, 53%) minmax(0, 47%);
   }
 
   img[alt="Favstir application interface"],
   img[alt="Refreshly application interface"] {
-    left: 0.75rem;
-    top: 56%;
     width: calc(100% - 1.5rem);
-    height: 50%;
+    height: calc(100% - 0.55rem);
+    margin: 0 0.75rem 0.55rem;
   }
 }
 
 @media (max-width: 500px) {
   .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] > div:first-child {
-    max-width: 66%;
+    max-width: 68%;
   }
 
   .home-shell-v2 > section:first-child a[href="/portfolio/manacamp"] h2 {
-    font-size: 2.45rem;
+    font-size: 2.4rem;
   }
 
   img[alt="ManaCamp application interface"] {
-    width: 46%;
-    height: 54%;
+    right: -4%;
+    width: 43%;
+    height: 50%;
   }
 
   .home-shell-v2 > section:first-child a[href="/portfolio/favstir"] > div:first-child p,
@@ -110,9 +156,8 @@ img[alt="Refreshly application interface"] {
     display: none;
   }
 
-  img[alt="Favstir application interface"],
-  img[alt="Refreshly application interface"] {
-    top: 52%;
-    height: 55%;
+  .home-shell-v2 > section:first-child a[href="/portfolio/favstir"],
+  .home-shell-v2 > section:first-child a[href="/portfolio/refreshly"] {
+    grid-template-rows: minmax(0, 50%) minmax(0, 50%);
   }
 }
