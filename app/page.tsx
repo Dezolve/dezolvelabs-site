@@ -1,10 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { ProjectCard } from '@/components/ProjectCard';
 import { projects } from '@/src/data/projects';
+import styles from './home.module.css';
 
 const principles = [
   {
@@ -41,6 +43,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const [manaCamp, ...supportingProjects] = projects;
+  const [favstir, refreshly] = supportingProjects;
   const spotlightStyle = {
     ['--project-accent-from' as string]: '#5b8cff',
     ['--project-accent-to' as string]: '#ff8b3d',
@@ -49,15 +52,15 @@ export default function HomePage() {
   return (
     <Container>
       <div className="home-shell-v2">
-        <section className="home-hero" aria-labelledby="home-heading">
-          <div className="hero-copy-block" data-reveal>
+        <section className={styles.hero} aria-labelledby="home-heading">
+          <div className={styles.heroCopy} data-reveal>
             <p className="kicker">Independent product studio</p>
-            <h1 id="home-heading" className="hero-title">
-              Software products with room to become lasting businesses.
+            <h1 id="home-heading" className={styles.heroTitle}>
+              Focused software. Built for the long run.
             </h1>
-            <p className="page-copy hero-copy">
-              Dezolve Labs builds, owns, and grows focused software across communication, consumer utility, wellness,
-              and business operations.
+            <p className={`page-copy ${styles.heroLede}`}>
+              Dezolve Labs builds, owns, and grows independent products across communication, consumer utility,
+              wellness, and business operations.
             </p>
             <div className="hero-actions">
               <Button href="/portfolio">Explore our products</Button>
@@ -65,60 +68,74 @@ export default function HomePage() {
                 How we build
               </Button>
             </div>
-            <div className="hero-proof" aria-label="Portfolio summary">
+            <div className={styles.heroProof} aria-label="Portfolio summary">
               <span>
-                <strong>{projects.length}</strong> products
+                <strong>{projects.length}</strong>
+                Products
               </span>
               <span>
-                <strong>2</strong> live today
+                <strong>2</strong>
+                Live today
               </span>
               <span>
-                <strong>1</strong> flagship platform
+                <strong>1</strong>
+                Flagship platform
               </span>
             </div>
           </div>
 
-          <div className="hero-product-stage" data-reveal style={{ ['--reveal-delay' as string]: '100ms' }}>
-            <article className="hero-product-card hero-product-card-main">
-              <div className="hero-product-card-copy">
-                <span className="product-stage-label">Flagship platform</span>
-                <Image src={manaCamp.visuals.logo} alt="" width={54} height={54} className="stage-product-logo" />
-                <h2>{manaCamp.name}</h2>
-                <p>Presence-first communication for the moments that deserve more than another feed.</p>
+          <div className={styles.productMosaic} data-reveal style={{ ['--reveal-delay' as string]: '100ms' }}>
+            <Link href={`/portfolio/${manaCamp.slug}`} className={styles.manaCard}>
+              <div className={styles.manaCardCopy}>
+                <span className={styles.cardLabel}>Flagship platform</span>
+                <Image src={manaCamp.visuals.logo} alt="" width={54} height={54} className={styles.manaLogo} />
+                <div>
+                  <h2>{manaCamp.name}</h2>
+                  <p>Presence-first communication for the moments that deserve more than another feed.</p>
+                </div>
+                <span className={styles.cardLink}>Explore product ↗</span>
               </div>
               <Image
                 src={manaCamp.visuals.preview}
                 alt="ManaCamp product interface preview"
                 width={600}
                 height={1240}
-                className="stage-preview stage-preview-main"
+                className={styles.manaPreview}
                 priority
               />
-            </article>
+            </Link>
 
-            <article className="hero-product-card hero-product-card-favstir">
-              <span className="product-stage-label">Live product</span>
+            <Link href={`/portfolio/${favstir.slug}`} className={`${styles.sideCard} ${styles.favstirCard}`}>
+              <div className={styles.sideCardCopy}>
+                <span className={styles.cardLabel}>Live product</span>
+                <Image src={favstir.visuals.logo} alt="" width={38} height={38} className={styles.sideLogo} />
+                <h2>{favstir.name}</h2>
+                <p>Trusted recommendations without the noise.</p>
+              </div>
               <Image
-                src={supportingProjects[0].visuals.preview}
+                src={favstir.visuals.preview}
                 alt="Favstir product interface preview"
                 width={300}
                 height={620}
-                className="stage-preview"
+                className={styles.sidePreview}
               />
-              <strong>{supportingProjects[0].name}</strong>
-            </article>
+            </Link>
 
-            <article className="hero-product-card hero-product-card-refreshly">
-              <span className="product-stage-label">Daily utility</span>
+            <Link href={`/portfolio/${refreshly.slug}`} className={`${styles.sideCard} ${styles.refreshlyCard}`}>
+              <div className={styles.sideCardCopy}>
+                <span className={styles.cardLabel}>Daily utility</span>
+                <Image src={refreshly.visuals.logo} alt="" width={38} height={38} className={styles.sideLogo} />
+                <h2>{refreshly.name}</h2>
+                <p>Hydration tracking designed to stay easy.</p>
+              </div>
               <Image
-                src={supportingProjects[1].visuals.preview}
+                src={refreshly.visuals.preview}
                 alt="Refreshly product interface preview"
                 width={300}
                 height={620}
-                className="stage-preview"
+                className={styles.sidePreview}
               />
-              <strong>{supportingProjects[1].name}</strong>
-            </article>
+            </Link>
           </div>
         </section>
 
