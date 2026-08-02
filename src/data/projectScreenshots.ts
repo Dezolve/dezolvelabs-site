@@ -1,5 +1,5 @@
 import type { StaticImageData } from 'next/image';
-import favstirScreenshot from '@/assets/Favsir_Screenshot_001.png';
+import favstirScreenshot from '@/assets/Favstir_Screenshot_001.png';
 import manaCampScreenshot from '@/assets/Manacamp_Screenshot_001.png';
 import refreshlyScreenshot from '@/assets/Refreshly_Screenshot_001.png';
 
