@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { CSSProperties } from 'react';
 import { Button } from '@/components/Button';
+import { getProjectScreenshot, hasRealProjectScreenshot } from '@/src/data/projectScreenshots';
 import type { Project } from '@/src/data/projects';
 
 type ProjectDetailProps = {
@@ -16,6 +17,8 @@ const projectPalettes: Record<string, [string, string]> = {
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
   const [accentFrom, accentTo] = projectPalettes[project.slug] ?? [project.visuals.gradientFrom, project.visuals.gradientTo];
+  const screenshot = getProjectScreenshot(project.slug, project.visuals.preview);
+  const usesRealScreenshot = hasRealProjectScreenshot(project.slug);
   const heroStyle = {
     ['--project-accent-from' as string]: accentFrom,
     ['--project-accent-to' as string]: accentTo,
@@ -43,9 +46,17 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           </div>
         </div>
 
-        <div className="product-hero-visual" aria-hidden="true">
+        <div className={`product-hero-visual ${usesRealScreenshot ? 'has-real-preview' : ''}`} aria-hidden="true">
           <div className="product-preview-glow" />
-          <Image className="product-preview-image" src={project.visuals.preview} alt="" width={600} height={1240} priority />
+          <Image
+            className="product-preview-image"
+            src={screenshot}
+            alt=""
+            width={1600}
+            height={1000}
+            sizes="(max-width: 820px) 92vw, 46vw"
+            priority
+          />
         </div>
       </section>
 
