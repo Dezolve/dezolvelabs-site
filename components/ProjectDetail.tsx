@@ -62,23 +62,23 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
       <section className="product-context-grid">
         <article data-reveal>
-          <p className="kicker">Why it exists</p>
-          <h2>A product with a clear job.</h2>
+          <p className="kicker">Purpose</p>
+          <h2>What the product is built to do.</h2>
           <p>{project.whyItExists}</p>
         </article>
 
         <article data-reveal>
-          <p className="kicker">Why it belongs</p>
-          <h2>Its role in the portfolio.</h2>
+          <p className="kicker">Dezolve Labs role</p>
+          <h2>How the studio supports it.</h2>
           <p>{project.whyBelongs}</p>
         </article>
       </section>
 
       <section className="product-qualities" aria-labelledby="qualities-heading">
         <div className="section-heading" data-reveal>
-          <p className="kicker">Product qualities</p>
+          <p className="kicker">Key capabilities</p>
           <h2 id="qualities-heading" className="section-title">
-            What defines the experience.
+            What the product focuses on.
           </h2>
         </div>
         <div className="benefit-list">
@@ -95,15 +95,15 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
       <section className="dark-section product-next-step" data-reveal>
         <div>
-          <p className="kicker kicker-light">Keep exploring</p>
-          <h2 className="section-title">See the product in company context.</h2>
+          <p className="kicker kicker-light">Next steps</p>
+          <h2 className="section-title">Explore the rest of Dezolve Labs.</h2>
         </div>
         <div className="support-links action-links">
           <Button href="/portfolio" variant="ghost">
-            Back to products
+            All products
           </Button>
           <Button href="/studio" variant="ghost">
-            Inside the studio
+            About the studio
           </Button>
           <Button href="/contact" variant="ghost">
             Contact Dezolve Labs
