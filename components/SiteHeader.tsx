@@ -19,6 +19,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 12);
@@ -35,10 +36,6 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setMenuOpen(false);
     };
@@ -49,7 +46,7 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${isScrolled || pathname !== '/' || menuOpen ? 'site-header-solid' : ''}`}>
       <Container className="site-header-inner">
-        <Link href="/" className="brand" aria-label="Dezolve Labs home">
+        <Link href="/" className="brand" aria-label="Dezolve Labs home" onClick={closeMenu}>
           <span className="brand-mark" aria-hidden="true">
             D
           </span>
@@ -64,12 +61,13 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={closeMenu}
               className={`site-nav-link ${isActivePath(pathname, item.href) ? 'is-active' : ''}`}
             >
               {item.label}
             </Link>
           ))}
-          <Link href="/portfolio" className="header-cta">
+          <Link href="/portfolio" className="header-cta" onClick={closeMenu}>
             View portfolio
           </Link>
         </nav>
@@ -89,11 +87,16 @@ export function SiteHeader() {
 
       <div className={`mobile-menu ${menuOpen ? 'is-open' : ''}`} id="mobile-menu">
         <nav className="mobile-menu-nav" aria-label="Mobile navigation">
-          <Link href="/" className={pathname === '/' ? 'is-active' : ''}>
+          <Link href="/" className={pathname === '/' ? 'is-active' : ''} onClick={closeMenu}>
             Home
           </Link>
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className={isActivePath(pathname, item.href) ? 'is-active' : ''}>
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={closeMenu}
+              className={isActivePath(pathname, item.href) ? 'is-active' : ''}
+            >
               {item.label}
             </Link>
           ))}
