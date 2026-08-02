@@ -3,11 +3,11 @@ import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 
 const outreachReasons = [
-  'Product and technology partnerships',
+  'Product partnerships',
   'Platform integrations',
-  'Investment or acquisition conversations',
-  'Early product feedback',
-  'Press and studio inquiries',
+  'Investment or acquisition',
+  'Product feedback',
+  'Press or studio inquiries',
 ];
 
 export const metadata: Metadata = {
@@ -24,17 +24,16 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 id="contact-heading" className="page-title" data-reveal>
-            Bring the context. We will bring an honest answer.
+            Tell us what you have in mind.
           </h1>
           <p className="page-copy max-copy-width" data-reveal>
-            Dezolve Labs welcomes specific conversations that can make a product, partnership, or strategic opportunity
-            meaningfully stronger.
+            Share the opportunity, why you think Dezolve Labs may be a fit, and what you would like to discuss next.
           </p>
         </section>
 
         <section className="contact-layout">
           <aside className="contact-sidebar" data-reveal>
-            <p className="kicker">Good reasons to reach out</p>
+            <p className="kicker">Reasons to reach out</p>
             <div className="contact-reason-list">
               {outreachReasons.map((reason) => (
                 <p key={reason}>{reason}</p>
@@ -42,8 +41,8 @@ export default function ContactPage() {
             </div>
 
             <div className="contact-direct-block">
-              <h2>Direct contact</h2>
-              <p>Email remains the best path for a thoughtful first conversation.</p>
+              <h2>Email Dezolve Labs</h2>
+              <p>Email is the best way to start a conversation.</p>
               <a className="contact-email-link" href="mailto:hello@dezolvelabs.com">
                 hello@dezolvelabs.com ↗
               </a>
@@ -70,8 +69,8 @@ export default function ContactPage() {
           >
             <div className="form-heading">
               <p className="kicker">Start a conversation</p>
-              <h2>What are you working on?</h2>
-              <p>Share enough detail to make the first reply useful.</p>
+              <h2>What would you like to discuss?</h2>
+              <p>A few clear details will help us give you a useful reply.</p>
             </div>
 
             <div className="field-grid">
@@ -91,11 +90,11 @@ export default function ContactPage() {
             </div>
 
             <div className="field">
-              <label htmlFor="message">Context</label>
+              <label htmlFor="message">Message</label>
               <textarea
                 id="message"
                 name="message"
-                placeholder="What is the opportunity, why is Dezolve Labs relevant, and what would a useful next step look like?"
+                placeholder="What is the opportunity, why do you think there may be a fit, and what would you like to do next?"
                 required
               />
             </div>
