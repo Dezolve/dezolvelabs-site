@@ -52,7 +52,7 @@ export default function HomePage() {
   return (
     <Container>
       <div className="home-shell-v2">
-        <section className={styles.hero} aria-labelledby="home-heading">
+        <section className={styles.hero} style={{ minHeight: 'auto' }} aria-labelledby="home-heading">
           <div className={styles.heroCopy} data-reveal>
             <p className="kicker">Independent product studio</p>
             <h1 id="home-heading" className={styles.heroTitle}>
