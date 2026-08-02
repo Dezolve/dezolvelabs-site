@@ -7,13 +7,14 @@ const siteUrl = 'https://dezolvelabs.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Dezolve Labs — Software Studio and Holding Company',
+    default: 'Dezolve Labs — Independent Product Studio',
     template: '%s — Dezolve Labs',
   },
-  description: 'Dezolve Labs builds focused software products across utility, business, and digital communication.',
+  description:
+    'Dezolve Labs builds and grows independent software products across communication, consumer utility, wellness, and business operations.',
   openGraph: {
-    title: 'Dezolve Labs — Software Studio and Holding Company',
-    description: 'Dezolve Labs builds focused software products across utility, business, and digital communication.',
+    title: 'Dezolve Labs — Independent Product Studio',
+    description: 'Focused software products, built and owned for the long term.',
     url: siteUrl,
     siteName: 'Dezolve Labs',
     locale: 'en_US',
@@ -21,16 +22,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dezolve Labs — Software Studio and Holding Company',
-    description: 'Dezolve Labs builds focused software products across utility, business, and digital communication.',
+    title: 'Dezolve Labs — Independent Product Studio',
+    description: 'Focused software products, built and owned for the long term.',
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>

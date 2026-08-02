@@ -1,161 +1,247 @@
+import Image from 'next/image';
 import type { Metadata } from 'next';
+import type { CSSProperties } from 'react';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { ProjectCard } from '@/components/ProjectCard';
 import { projects } from '@/src/data/projects';
 
-const directionItems = [
-  'Build focused internal products',
-  'Grow a coherent software portfolio',
-  'Maintain a clear product and design standard',
-  'Create businesses with staying power',
+const principles = [
+  {
+    number: '01',
+    title: 'Useful first',
+    copy: 'Every product begins with a real problem, a clear user, and a reason to exist beyond novelty.',
+  },
+  {
+    number: '02',
+    title: 'Focused by design',
+    copy: 'Scope stays disciplined so the experience can become simpler, sharper, and easier to trust.',
+  },
+  {
+    number: '03',
+    title: 'Built to endure',
+    copy: 'We own what we build and keep improving it with a long horizon instead of chasing launch-day attention.',
+  },
+];
+
+const opportunityTypes = [
+  'Product and technology partnerships',
+  'Platform integrations',
+  'Investment or acquisition conversations',
+  'Early product feedback',
 ];
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Dezolve Labs — Software Studio and Holding Company',
+    absolute: 'Dezolve Labs — Independent Product Studio',
   },
-  description: 'Dezolve Labs is a software studio and holding company behind a growing portfolio of focused digital products.',
+  description:
+    'Dezolve Labs builds and grows independent software products across communication, consumer utility, wellness, and business operations.',
 };
 
 export default function HomePage() {
+  const [manaCamp, ...supportingProjects] = projects;
+  const spotlightStyle = {
+    ['--project-accent-from' as string]: '#5b8cff',
+    ['--project-accent-to' as string]: '#ff8b3d',
+  } as CSSProperties;
+
   return (
     <Container>
-      <div className="page-shell home-shell">
-        <section className="hero-section" aria-labelledby="home-heading">
-          <div className="hero-grid">
-            <div className="hero-copy-block" data-reveal>
-              <p className="kicker">Software studio and holding company</p>
-              <h1 id="home-heading" className="hero-title">
-                Focused software products, built with long-term intent.
-              </h1>
-              <p className="page-copy hero-copy">
-                Dezolve Labs builds software across utility, business, and digital communication, creating focused
-                products with clear value today and room to grow over time.
-              </p>
+      <div className="home-shell-v2">
+        <section className="home-hero" aria-labelledby="home-heading">
+          <div className="hero-copy-block" data-reveal>
+            <p className="kicker">Independent product studio</p>
+            <h1 id="home-heading" className="hero-title">
+              Software products with room to become lasting businesses.
+            </h1>
+            <p className="page-copy hero-copy">
+              Dezolve Labs builds, owns, and grows focused software across communication, consumer utility, wellness,
+              and business operations.
+            </p>
+            <div className="hero-actions">
+              <Button href="/portfolio">Explore our products</Button>
+              <Button href="/studio" variant="secondary">
+                How we build
+              </Button>
+            </div>
+            <div className="hero-proof" aria-label="Portfolio summary">
+              <span>
+                <strong>{projects.length}</strong> products
+              </span>
+              <span>
+                <strong>2</strong> live today
+              </span>
+              <span>
+                <strong>1</strong> flagship platform
+              </span>
+            </div>
+          </div>
+
+          <div className="hero-product-stage" data-reveal style={{ ['--reveal-delay' as string]: '100ms' }}>
+            <article className="hero-product-card hero-product-card-main">
+              <div className="hero-product-card-copy">
+                <span className="product-stage-label">Flagship platform</span>
+                <Image src={manaCamp.visuals.logo} alt="" width={54} height={54} className="stage-product-logo" />
+                <h2>{manaCamp.name}</h2>
+                <p>Presence-first communication for the moments that deserve more than another feed.</p>
+              </div>
+              <Image
+                src={manaCamp.visuals.preview}
+                alt="ManaCamp product interface preview"
+                width={600}
+                height={1240}
+                className="stage-preview stage-preview-main"
+                priority
+              />
+            </article>
+
+            <article className="hero-product-card hero-product-card-favstir">
+              <span className="product-stage-label">Live product</span>
+              <Image
+                src={supportingProjects[0].visuals.preview}
+                alt="Favstir product interface preview"
+                width={300}
+                height={620}
+                className="stage-preview"
+              />
+              <strong>{supportingProjects[0].name}</strong>
+            </article>
+
+            <article className="hero-product-card hero-product-card-refreshly">
+              <span className="product-stage-label">Daily utility</span>
+              <Image
+                src={supportingProjects[1].visuals.preview}
+                alt="Refreshly product interface preview"
+                width={300}
+                height={620}
+                className="stage-preview"
+              />
+              <strong>{supportingProjects[1].name}</strong>
+            </article>
+          </div>
+        </section>
+
+        <section className="content-section portfolio-led-section" aria-labelledby="portfolio-heading">
+          <div className="section-heading split-heading" data-reveal>
+            <div>
+              <p className="kicker">The portfolio</p>
+              <h2 id="portfolio-heading" className="section-title">
+                Products are the proof.
+              </h2>
+            </div>
+            <p className="page-copy">
+              Different categories, one standard: clear utility, careful design, and a product worth owning for the long
+              term.
+            </p>
+          </div>
+
+          <article className="project-spotlight" style={spotlightStyle} data-reveal>
+            <div className="project-spotlight-copy">
+              <div className="spotlight-meta">
+                <span className="status-pill">{manaCamp.status}</span>
+                <span>{manaCamp.category}</span>
+              </div>
+              <Image src={manaCamp.visuals.logo} alt="" width={68} height={68} className="spotlight-logo" />
+              <h3>{manaCamp.name}</h3>
+              <p className="spotlight-lede">{manaCamp.oneLiner}</p>
+              <p>{manaCamp.description}</p>
               <div className="hero-actions">
-                <Button href="/portfolio">View Portfolio</Button>
-                <Button href="/studio" variant="secondary">
-                  Explore the Studio
+                <Button href={`/portfolio/${manaCamp.slug}`}>Explore ManaCamp</Button>
+                <Button href={manaCamp.links.primary} variant="secondary">
+                  Visit product
                 </Button>
               </div>
             </div>
+            <div className="project-spotlight-visual" aria-hidden="true">
+              <Image src={manaCamp.visuals.preview} alt="" width={600} height={1240} />
+            </div>
+          </article>
 
-            <aside className="hero-aside surface-card" data-reveal>
-              <div className="chip-list" aria-label="Company descriptors">
-                <span className="status-pill">Software studio</span>
-                <span className="status-pill">Holding company</span>
-                <span className="status-pill">Portfolio-led</span>
-                <span className="status-pill">Long-term product focus</span>
-              </div>
-              <p>
-                The company portfolio spans practical utility, business software, and long-horizon communication
-                products built to earn staying power.
-              </p>
-            </aside>
-          </div>
-        </section>
-
-        <section className="content-section" aria-labelledby="company-intro-heading">
-          <div className="section-heading" data-reveal>
-            <p className="kicker">Company</p>
-            <h2 id="company-intro-heading" className="section-title max-copy-width">
-              A company built to create products that last.
-            </h2>
-          </div>
-          <div className="two-column-copy" data-reveal>
-            <p>
-              Dezolve Labs is the strategic home for a growing portfolio of software products. Some are practical tools,
-              some are business-focused systems, and some are larger long-term platform bets, but all are built with the
-              same commitment to clarity, usefulness, and thoughtful execution.
-            </p>
-            <p>
-              Rather than functioning as a traditional services business, Dezolve Labs is structured around the work of
-              building and compounding durable software products.
-            </p>
-          </div>
-        </section>
-
-        <section className="content-section" aria-labelledby="portfolio-heading">
-          <div className="section-heading" data-reveal>
-            <p className="kicker">Portfolio</p>
-            <h2 id="portfolio-heading" className="section-title">
-              Current portfolio
-            </h2>
-            <p className="page-copy max-copy-width">
-              A growing set of products spanning foundational web experiences, modern mobile utility, business software,
-              and long-term communication platforms.
-            </p>
-          </div>
-
-          <div className="portfolio-grid">
-            {projects.map((project, index) => (
+          <div className="portfolio-grid portfolio-support-grid">
+            {supportingProjects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} revealDelay={index * 80} />
             ))}
           </div>
         </section>
 
-        <section className="content-section" aria-labelledby="rationale-heading">
-          <div className="feature-panel" data-reveal>
-            <div className="section-heading compact-heading">
-              <p className="kicker">Shared standard</p>
-              <h2 id="rationale-heading" className="section-title max-copy-width">
-                A portfolio connected by product discipline.
-              </h2>
-            </div>
-            <div className="two-column-copy">
-              <p>
-                Dezolve Labs builds across different categories, but the standard stays the same: focused scope, clear
-                utility, strong product taste, and the intention to create software that becomes more valuable over time.
-              </p>
-              <p>
-                The goal is not to launch everything. It is to build the right products well and give them a durable
-                home.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="content-section" aria-labelledby="direction-heading">
+        <section className="content-section philosophy-section" aria-labelledby="principles-heading">
           <div className="section-heading" data-reveal>
-            <p className="kicker">Direction</p>
-            <h2 id="direction-heading" className="section-title max-copy-width">
-              Built for long-term product ambition.
+            <p className="kicker">The shared standard</p>
+            <h2 id="principles-heading" className="section-title max-copy-width">
+              Build less. Make it matter more.
             </h2>
-            <p className="page-copy max-copy-width">
-              Dezolve Labs is designed to keep building, from practical tools and business software to larger platform
-              bets with long horizons. ManaCamp represents the company’s clearest long-term flagship, while the broader
-              portfolio reflects a steady pattern of shipping useful products with care.
-            </p>
           </div>
-
-          <div className="principles-grid direction-grid">
-            {directionItems.map((item) => (
-              <article key={item} className="surface-card stat-card" data-reveal>
-                <h3>{item}</h3>
+          <div className="principles-grid editorial-principles">
+            {principles.map((principle) => (
+              <article key={principle.number} className="principle-card" data-reveal>
+                <span>{principle.number}</span>
+                <h3>{principle.title}</h3>
+                <p>{principle.copy}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="content-section" aria-labelledby="home-contact-heading">
-          <div className="contact-panel" data-reveal>
+        <section className="studio-story dark-section" aria-labelledby="studio-story-heading" data-reveal>
+          <div>
+            <p className="kicker kicker-light">Why Dezolve Labs exists</p>
+            <h2 id="studio-story-heading" className="section-title">
+              One home for products that deserve patient ownership.
+            </h2>
+          </div>
+          <div className="studio-story-copy">
+            <p>
+              Dezolve Labs is an independent studio built to turn focused ideas into durable software. It gives each
+              product the same strategic, technical, and design foundation without forcing them into the same mold.
+            </p>
+            <Button href="/studio" variant="ghost">
+              Inside the studio
+            </Button>
+          </div>
+        </section>
+
+        <section className="content-section current-direction" aria-labelledby="direction-heading">
+          <div className="section-heading split-heading" data-reveal>
             <div>
-              <p className="kicker">Opportunities</p>
-              <h2 id="home-contact-heading" className="section-title max-copy-width">
-                Open to aligned opportunities.
+              <p className="kicker">Current direction</p>
+              <h2 id="direction-heading" className="section-title">
+                Building now, not someday.
               </h2>
-              <p className="page-copy max-copy-width">
-                Dezolve Labs is open to thoughtful conversations around partnerships, product strategy, venture
-                collaboration, and opportunities that fit the company’s long-term direction.
-              </p>
             </div>
-            <div className="hero-actions">
-              <Button href="/contact">Contact the Studio</Button>
-              <Button href="mailto:hello@dezolvelabs.com" variant="secondary">
-                Get in Touch
-              </Button>
-            </div>
+            <p className="page-copy">
+              The portfolio is intentionally early. Status is visible because progress matters more than pretending every
+              product is finished.
+            </p>
+          </div>
+          <div className="build-status-list">
+            {projects.map((project) => (
+              <a key={project.slug} href={`/portfolio/${project.slug}`} className="build-status-row" data-reveal>
+                <span className="build-status-name">{project.name}</span>
+                <span className="build-status-category">{project.category}</span>
+                <span className="status-pill">{project.status}</span>
+                <span aria-hidden="true" className="status-arrow">
+                  ↗
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="contact-panel-v2" aria-labelledby="home-contact-heading" data-reveal>
+          <div>
+            <p className="kicker">Open conversations</p>
+            <h2 id="home-contact-heading" className="section-title">
+              The right opportunities start with useful context.
+            </h2>
+          </div>
+          <div className="contact-panel-content">
+            <ul>
+              {opportunityTypes.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <Button href="/contact">Contact Dezolve Labs</Button>
           </div>
         </section>
       </div>

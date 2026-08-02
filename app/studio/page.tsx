@@ -1,135 +1,132 @@
 import type { Metadata } from 'next';
+import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 
-const studioActivities = [
-  'Builds internal software products',
-  'Launches and grows portfolio ventures',
-  'Incubates new ideas',
-  'Maintains a high standard for product clarity and design quality',
-  'Builds across utility, business software, and digital communication',
+const buildStages = [
+  {
+    step: '01',
+    title: 'Find the useful core',
+    copy: 'Start with the behavior or problem that genuinely matters. Remove the idea-shaped decoration around it.',
+  },
+  {
+    step: '02',
+    title: 'Build the smallest honest product',
+    copy: 'Ship enough to prove the experience, learn from real use, and avoid spending months polishing the wrong shape.',
+  },
+  {
+    step: '03',
+    title: 'Own the long iteration',
+    copy: 'Improve the product through usage, technical depth, and disciplined expansion instead of feature accumulation.',
+  },
 ];
 
-const operatingPrinciples = [
-  {
-    title: 'Clear utility wins.',
-    copy: 'Products should solve real problems without unnecessary friction.',
-  },
-  {
-    title: 'Focus compounds.',
-    copy: 'Strong products begin with disciplined scope and improve through deliberate iteration.',
-  },
-  {
-    title: 'Quality builds trust.',
-    copy: 'Interface, interaction, and brand quality are part of the product’s value.',
-  },
-  {
-    title: 'Durability matters.',
-    copy: 'The goal is to build products that can still matter years from now.',
-  },
-  {
-    title: 'The portfolio should feel intentional.',
-    copy: 'Each venture should earn its place in the company.',
-  },
+const selectionSignals = [
+  'A clear user behavior or operational need',
+  'A product experience that can become meaningfully better',
+  'A focused first version with room to compound',
+  'A reason for Dezolve Labs to remain a committed owner',
 ];
 
 export const metadata: Metadata = {
   title: 'Studio',
-  description: 'Learn how Dezolve Labs operates as a software studio and holding company.',
+  description: 'Learn how Dezolve Labs selects, builds, and grows independent software products.',
 };
 
 export default function StudioPage() {
   return (
     <Container>
-      <div className="page-shell">
-        <section className="page-intro" aria-labelledby="studio-heading">
+      <div className="page-shell studio-page-shell">
+        <section className="page-intro studio-intro" aria-labelledby="studio-heading">
           <p className="kicker" data-reveal>
-            Studio
+            The studio
           </p>
           <h1 id="studio-heading" className="page-title" data-reveal>
-            A studio structure built for long-term software products.
+            A product company designed for patient building.
           </h1>
-          <p className="page-copy max-copy-width" data-reveal>
-            Dezolve Labs is the company behind a growing portfolio of software products. It exists to build products
-            internally, support them with a consistent standard, and develop them into durable businesses over time.
-          </p>
-        </section>
-
-        <section className="content-section" aria-labelledby="studio-what-heading">
-          <div className="section-heading" data-reveal>
-            <p className="kicker">What the company is</p>
-            <h2 id="studio-what-heading" className="section-title max-copy-width">
-              What the company is
-            </h2>
-          </div>
-          <div className="feature-panel" data-reveal>
-            <p className="page-copy max-copy-width">
-              Dezolve Labs is a software studio and holding company. It provides the strategic, operational, and creative
-              foundation for the products it builds and grows.
+          <div className="page-intro-split" data-reveal>
+            <p className="page-copy">
+              Dezolve Labs is the strategic, technical, and creative home behind an independent software portfolio.
+            </p>
+            <p>
+              The studio exists to choose focused ideas, give them a strong foundation, and stay close enough to the work
+              to make better decisions over time.
             </p>
           </div>
         </section>
 
-        <section className="content-section" aria-labelledby="studio-does-heading">
-          <div className="section-heading" data-reveal>
-            <p className="kicker">What the company does</p>
-            <h2 id="studio-does-heading" className="section-title max-copy-width">
-              What the company does
-            </h2>
+        <section className="content-section" aria-labelledby="process-heading">
+          <div className="section-heading split-heading" data-reveal>
+            <div>
+              <p className="kicker">How we build</p>
+              <h2 id="process-heading" className="section-title">
+                From useful idea to owned product.
+              </h2>
+            </div>
+            <p className="page-copy">
+              The process is deliberately straightforward. Most product mistakes are not caused by a lack of ceremony.
+            </p>
           </div>
-          <div className="bullet-panel" data-reveal>
-            {studioActivities.map((item) => (
-              <p key={item} className="bullet-line">
-                {item}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        <section className="content-section" aria-labelledby="studio-principles-heading">
-          <div className="section-heading" data-reveal>
-            <p className="kicker">Operating principles</p>
-            <h2 id="studio-principles-heading" className="section-title max-copy-width">
-              Operating principles
-            </h2>
-          </div>
-          <div className="principles-grid">
-            {operatingPrinciples.map((principle) => (
-              <article key={principle.title} className="surface-card principle-card" data-reveal>
-                <h3>{principle.title}</h3>
-                <p>{principle.copy}</p>
+          <div className="studio-process-grid">
+            {buildStages.map((stage) => (
+              <article key={stage.step} data-reveal>
+                <span>{stage.step}</span>
+                <h3>{stage.title}</h3>
+                <p>{stage.copy}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="content-section" aria-labelledby="studio-fit-heading">
-          <div className="feature-panel" data-reveal>
-            <div className="section-heading compact-heading">
-              <p className="kicker">Opportunity fit</p>
-              <h2 id="studio-fit-heading" className="section-title max-copy-width">
-                What fits the studio
-              </h2>
-            </div>
-            <p className="page-copy max-copy-width">
-              Dezolve Labs is most interested in opportunities connected to product quality, software utility,
-              communication, digital experience, and ventures that benefit from clear long-term direction.
+        <section className="studio-selection" aria-labelledby="selection-heading" data-reveal>
+          <div className="studio-selection-copy">
+            <p className="kicker">What we choose</p>
+            <h2 id="selection-heading" className="section-title">
+              Products that benefit from clarity and committed ownership.
+            </h2>
+            <p>
+              Dezolve Labs is category-flexible but judgment-driven. A product does not need to be enormous. It needs a
+              real reason to exist and a path toward becoming more useful over time.
             </p>
+          </div>
+          <div className="selection-signal-list">
+            {selectionSignals.map((signal) => (
+              <p key={signal}>{signal}</p>
+            ))}
           </div>
         </section>
 
-        <section className="content-section" aria-labelledby="studio-direction-heading">
-          <div className="feature-panel" data-reveal>
-            <div className="section-heading compact-heading">
-              <p className="kicker">Long-term direction</p>
-              <h2 id="studio-direction-heading" className="section-title max-copy-width">
-                Where the company is headed
-              </h2>
-            </div>
-            <p className="page-copy max-copy-width">
-              The long-term goal is to build a durable portfolio of software products united by strong standards,
-              practical value, and a clear point of view on what good software should feel like. That includes small
-              utility products, pragmatic business tools, and larger communication-platform ambitions led by ManaCamp.
+        <section className="dark-section founder-note" aria-labelledby="independent-heading" data-reveal>
+          <div>
+            <p className="kicker kicker-light">Independent by design</p>
+            <h2 id="independent-heading" className="section-title">
+              Close enough to the product to keep the judgment intact.
+            </h2>
+          </div>
+          <div>
+            <p>
+              Dezolve Labs is independently operated from Northern California. That structure keeps strategy, design,
+              engineering, and product ownership connected instead of handing the product from one detached function to
+              the next.
             </p>
+            <Button href="/portfolio" variant="ghost">
+              Explore the products
+            </Button>
+          </div>
+        </section>
+
+        <section className="contact-panel-v2 studio-contact" aria-labelledby="studio-contact-heading" data-reveal>
+          <div>
+            <p className="kicker">Aligned opportunities</p>
+            <h2 id="studio-contact-heading" className="section-title">
+              Partnerships should make the product stronger.
+            </h2>
+          </div>
+          <div className="contact-panel-content">
+            <p>
+              Dezolve Labs is open to conversations around product partnerships, integrations, strategic collaboration,
+              investment, and acquisition where the fit is specific and credible.
+            </p>
+            <Button href="/contact">Start a conversation</Button>
           </div>
         </section>
       </div>

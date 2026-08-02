@@ -3,54 +3,50 @@ import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 
 const outreachReasons = [
-  'Strategic partnership ideas',
-  'Venture or product collaboration',
-  'Select product or company opportunities',
-  'Press or speaking inquiries',
+  'Product and technology partnerships',
+  'Platform integrations',
+  'Investment or acquisition conversations',
+  'Early product feedback',
+  'Press and studio inquiries',
 ];
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Reach Dezolve Labs for aligned partnerships, collaboration, and product opportunities.',
+  description: 'Contact Dezolve Labs about product partnerships, integrations, investment, and studio inquiries.',
 };
 
 export default function ContactPage() {
   return (
     <Container>
-      <div className="page-shell" aria-labelledby="contact-heading">
-        <section className="page-intro">
+      <div className="page-shell contact-page-shell" aria-labelledby="contact-heading">
+        <section className="page-intro contact-intro">
           <p className="kicker" data-reveal>
             Contact
           </p>
           <h1 id="contact-heading" className="page-title" data-reveal>
-            Reach out if the fit is right.
+            Bring the context. We will bring an honest answer.
           </h1>
           <p className="page-copy max-copy-width" data-reveal>
-            Dezolve Labs welcomes thoughtful outreach around partnerships, collaboration, product opportunities, and
-            conversations aligned with the company’s long-term direction.
+            Dezolve Labs welcomes specific conversations that can make a product, partnership, or strategic opportunity
+            meaningfully stronger.
           </p>
         </section>
 
         <section className="contact-layout">
-          <aside className="surface-card contact-sidebar" data-reveal>
+          <aside className="contact-sidebar" data-reveal>
             <p className="kicker">Good reasons to reach out</p>
-            <div className="bullet-panel compact-bullets">
+            <div className="contact-reason-list">
               {outreachReasons.map((reason) => (
-                <p key={reason} className="bullet-line">
-                  {reason}
-                </p>
+                <p key={reason}>{reason}</p>
               ))}
             </div>
 
             <div className="contact-direct-block">
               <h2>Direct contact</h2>
-              <p>
-                Email is the primary path for thoughtful outreach. Reach the studio at{' '}
-                <a className="inline-link" href="mailto:hello@dezolvelabs.com">
-                  hello@dezolvelabs.com
-                </a>
-                .
-              </p>
+              <p>Email remains the best path for a thoughtful first conversation.</p>
+              <a className="contact-email-link" href="mailto:hello@dezolvelabs.com">
+                hello@dezolvelabs.com ↗
+              </a>
               <div className="contact-social-list" aria-label="Social links">
                 <a href="https://www.linkedin.com/company/dezolvelabs" target="_blank" rel="noreferrer">
                   LinkedIn
@@ -66,43 +62,50 @@ export default function ContactPage() {
           </aside>
 
           <form
-            className="surface-card contact-form-panel"
+            className="contact-form-panel"
             data-reveal
             action="mailto:hello@dezolvelabs.com"
             method="post"
             encType="text/plain"
           >
             <div className="form-heading">
-              <p className="kicker">Contact the studio</p>
-              <h2>Start a conversation</h2>
+              <p className="kicker">Start a conversation</p>
+              <h2>What are you working on?</h2>
+              <p>Share enough detail to make the first reply useful.</p>
+            </div>
+
+            <div className="field-grid">
+              <div className="field">
+                <label htmlFor="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div className="field">
+                <label htmlFor="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@company.com" required />
+              </div>
             </div>
 
             <div className="field">
-              <label htmlFor="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
+              <label htmlFor="topic">Topic</label>
+              <input id="topic" name="topic" type="text" placeholder="Partnership, integration, investment, feedback" required />
             </div>
 
             <div className="field">
-              <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@company.com" required />
-            </div>
-
-            <div className="field">
-              <label htmlFor="topic">What are you reaching out about?</label>
-              <input id="topic" name="topic" type="text" placeholder="Partnership, collaboration, product opportunity" required />
-            </div>
-
-            <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" placeholder="Share the context and what makes the opportunity relevant." required />
+              <label htmlFor="message">Context</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="What is the opportunity, why is Dezolve Labs relevant, and what would a useful next step look like?"
+                required
+              />
             </div>
 
             <div className="form-actions">
               <button className="button button-primary" type="submit">
-                Contact the Studio
+                Open email draft
               </button>
               <Button href="mailto:hello@dezolvelabs.com" variant="secondary">
-                Email Directly
+                Email directly
               </Button>
             </div>
           </form>

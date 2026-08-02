@@ -6,33 +6,39 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <Container className="site-footer-inner">
-        <section className="footer-intro" aria-labelledby="footer-company-heading">
-          <p className="kicker">Dezolve Labs</p>
-          <h2 id="footer-company-heading">Built for long-term software products.</h2>
-          <p>
-            Dezolve Labs is a software studio and holding company building focused products across utility, business,
-            and digital communication.
-          </p>
-        </section>
+        <div className="footer-topline">
+          <div className="footer-intro">
+            <span className="brand-mark brand-mark-footer" aria-hidden="true">
+              D
+            </span>
+            <div>
+              <p className="kicker kicker-light">Dezolve Labs</p>
+              <h2>Independent products. Patient ownership.</h2>
+            </div>
+          </div>
+          <a className="footer-email" href="mailto:hello@dezolvelabs.com">
+            hello@dezolvelabs.com ↗
+          </a>
+        </div>
 
         <div className="footer-grid">
-          <div className="footer-column">
-            <p className="footer-column-title">Company</p>
-            <p>The strategic home behind a product portfolio built with clarity, usefulness, and long-term intent.</p>
+          <div className="footer-column footer-company-copy">
+            <p className="footer-column-title">Studio</p>
+            <p>
+              Building software across communication, consumer utility, wellness, and business operations from Northern
+              California.
+            </p>
           </div>
 
           <nav className="footer-column" aria-label="Footer navigation">
-            <p className="footer-column-title">Navigation</p>
-            <Link href="/">Home</Link>
-            <Link href="/portfolio">Portfolio</Link>
+            <p className="footer-column-title">Explore</p>
+            <Link href="/portfolio">Products</Link>
             <Link href="/studio">Studio</Link>
             <Link href="/contact">Contact</Link>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
           </nav>
 
           <nav className="footer-column" aria-label="Portfolio links">
-            <p className="footer-column-title">Portfolio</p>
+            <p className="footer-column-title">Products</p>
             {projects.map((project) => (
               <Link key={project.slug} href={`/portfolio/${project.slug}`}>
                 {project.name}
@@ -41,21 +47,26 @@ export function SiteFooter() {
           </nav>
 
           <div className="footer-column">
-            <p className="footer-column-title">Contact</p>
-            <a href="mailto:hello@dezolvelabs.com">hello@dezolvelabs.com</a>
+            <p className="footer-column-title">Follow</p>
             <a href="https://www.linkedin.com/company/dezolvelabs" target="_blank" rel="noreferrer">
-              LinkedIn
+              LinkedIn ↗
             </a>
             <a href="https://x.com/dezolvelabs" target="_blank" rel="noreferrer">
-              X
+              X ↗
             </a>
             <a href="https://github.com/Dezolve" target="_blank" rel="noreferrer">
-              GitHub
+              GitHub ↗
             </a>
           </div>
         </div>
 
-        <p className="footer-copyright">Copyright {new Date().getFullYear()} Dezolve Labs</p>
+        <div className="footer-bottomline">
+          <p>© {new Date().getFullYear()} Dezolve Labs</p>
+          <div>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+          </div>
+        </div>
       </Container>
     </footer>
   );
