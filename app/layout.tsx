@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import './screenshots.css';
 import './theme-hybrid.css';
+import './hero-card-fixes.css';
 import { SiteShell } from '@/components/SiteShell';
 
 const siteUrl = 'https://dezolvelabs.com';
