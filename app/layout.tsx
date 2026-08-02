@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './screenshots.css';
 import { SiteShell } from '@/components/SiteShell';
 
 const siteUrl = 'https://dezolvelabs.com';
