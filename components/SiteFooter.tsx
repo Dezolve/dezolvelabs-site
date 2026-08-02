@@ -13,7 +13,7 @@ export function SiteFooter() {
             </span>
             <div>
               <p className="kicker kicker-light">Dezolve Labs</p>
-              <h2>Independent products. Patient ownership.</h2>
+              <h2>Independent software products, built and supported in one studio.</h2>
             </div>
           </div>
           <a className="footer-email" href="mailto:hello@dezolvelabs.com">
@@ -25,8 +25,8 @@ export function SiteFooter() {
           <div className="footer-column footer-company-copy">
             <p className="footer-column-title">Studio</p>
             <p>
-              Building software across communication, consumer utility, wellness, and business operations from Northern
-              California.
+              Product strategy, design, engineering, and ongoing development across communication, consumer utility,
+              wellness, and business operations.
             </p>
           </div>
 
