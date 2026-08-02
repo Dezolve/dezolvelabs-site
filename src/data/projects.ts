@@ -42,14 +42,14 @@ export const projects: Project[] = [
     name: 'ManaCamp',
     category: 'Real-time communication platform',
     status: 'In Development',
-    oneLiner: 'Dezolve Labs’ flagship long-term platform vision for presence, expression, and togetherness.',
-    description: 'A presence-first communication platform for channels, sessions, voice, and live collaboration.',
-    portfolioFit:
-      'Represents the company’s long-term interest in richer digital presence and modern communication systems.',
+    oneLiner:
+      'A presence-first communication platform for communities, teams, and groups that want more than another text feed.',
+    description: 'ManaCamp brings channels, live sessions, voice, and shared activity together in one place.',
+    portfolioFit: 'The flagship communication platform being developed and operated by Dezolve Labs.',
     whyItExists:
-      'ManaCamp is Dezolve Labs’ flagship long-term platform vision, built to make digital communication feel more present, more expressive, and more useful when conversation needs to move beyond fragmented tools.',
+      'Most communication tools separate chat, voice, presence, and shared activity. ManaCamp is being built to bring those pieces together so groups can see what is happening and join in naturally.',
     whyBelongs:
-      'ManaCamp represents Dezolve Labs’ long-term interest in communication systems, digital presence, and richer real-time interaction.',
+      'Dezolve Labs leads ManaCamp’s product strategy, interface design, engineering, desktop and mobile development, and long-term platform roadmap.',
     links: {
       primary: 'https://manacamp.com',
       primaryLabel: 'Visit ManaCamp',
@@ -59,18 +59,18 @@ export const projects: Project[] = [
     tags: ['Communication', 'Presence', 'Live Collaboration'],
     features: [
       {
-        title: 'Presence-first structure',
-        detail: 'Channels, sessions, and live spaces are shaped to feel coordinated instead of fragmented.',
+        title: 'Presence-first spaces',
+        detail: 'See who is around, what is active, and where to join without chasing separate links or applications.',
         icon: '/icons/share.svg',
       },
       {
-        title: 'Real-time interaction',
-        detail: 'Voice, live collaboration, and richer context help conversations move naturally when text is not enough.',
+        title: 'Voice and live sessions',
+        detail: 'Move from text into voice or a shared session without losing the surrounding conversation.',
         icon: '/icons/clarity.svg',
       },
       {
-        title: 'Room to grow',
-        detail: 'The product is being built as a long-horizon communication system rather than a short-cycle feature launch.',
+        title: 'Built across platforms',
+        detail: 'ManaCamp is being developed for web, desktop, and mobile so groups can stay connected wherever they are.',
         icon: '/icons/focus.svg',
       },
     ],
@@ -93,32 +93,33 @@ export const projects: Project[] = [
     name: 'FavStir',
     category: 'Curated recommendation sharing',
     status: 'Live',
-    oneLiner: 'A foundational web product centered on curated sharing and list-based social utility.',
-    description: 'A quieter way to collect and share trusted recommendations through thoughtful list-based experiences.',
-    portfolioFit: 'Reflects a belief in signal-over-noise consumer products.',
+    oneLiner: 'Create and share ranked lists of the things you recommend most.',
+    description:
+      'FavStir turns personal recommendations into useful, shareable lists across entertainment, food, travel, products, and more.',
+    portfolioFit: 'A live consumer product built and operated by Dezolve Labs.',
     whyItExists:
-      'FavStir exists because useful recommendations are often buried inside noisy social patterns. The product gives that behavior a clearer and more intentional home.',
+      'Recommendations from people you trust are often buried in messages, posts, and memory. FavStir gives them a permanent, organized place that is easy to share.',
     whyBelongs:
-      'FavStir represents the company’s interest in quieter, higher-signal consumer experiences built around trust and usefulness.',
+      'Dezolve Labs owns FavStir’s product direction, web platform, list experience, discovery tools, and ongoing development.',
     links: {
       primary: 'https://favstir.com',
       primaryLabel: 'Visit FavStir',
     },
-    tags: ['Consumer Product', 'Recommendations', 'Signal Over Noise'],
+    tags: ['Consumer Product', 'Recommendations', 'Lists'],
     features: [
       {
-        title: 'Thoughtful list sharing',
-        detail: 'Recommendations are organized as useful collections instead of disposable social posts.',
+        title: 'Structured list creation',
+        detail: 'Build ranked lists with titles, categories, notes, and enough context to make each recommendation useful.',
         icon: '/icons/curation.svg',
       },
       {
-        title: 'Trusted distribution',
-        detail: 'The product is built for sharing recommendations with people you actually know and trust.',
+        title: 'Flexible sharing',
+        detail: 'Publish a list, keep it private, or share it directly depending on who it is for.',
         icon: '/icons/share.svg',
       },
       {
-        title: 'Calm product behavior',
-        detail: 'Restraint in the interface keeps attention on the quality of the recommendation itself.',
+        title: 'Recommendations with a source',
+        detail: 'Browse lists created by other people and understand who is behind each recommendation.',
         icon: '/icons/focus.svg',
       },
     ],
@@ -140,13 +141,13 @@ export const projects: Project[] = [
     name: 'Refreshly',
     category: 'Health and wellness utility',
     status: 'Live',
-    oneLiner: 'A modern hydration tracker designed for simplicity, motivation, and daily ease of use.',
-    description: 'A hydration product designed around low-friction tracking, calm interaction, and daily usefulness.',
-    portfolioFit: 'Shows the value of focused utility software done with care.',
+    oneLiner: 'A simple hydration tracker that helps people log water and stay on pace throughout the day.',
+    description: 'Refreshly keeps daily water tracking quick, readable, and easy to return to.',
+    portfolioFit: 'A live mobile utility designed and maintained by Dezolve Labs.',
     whyItExists:
-      'Refreshly exists to prove that small daily-use utilities can earn long-term relevance when they are simple, clear, and genuinely easy to return to.',
+      'Hydration applications can become noisy or tedious. Refreshly focuses on the few actions people need: set a goal, log a drink, and understand their progress.',
     whyBelongs:
-      'Refreshly represents the value of focused utility software designed to become part of a daily routine.',
+      'Dezolve Labs designs, develops, and maintains Refreshly as a focused mobile utility for everyday use.',
     links: {
       primary: 'https://refreshly.app',
       primaryLabel: 'Visit Refreshly',
@@ -156,19 +157,19 @@ export const projects: Project[] = [
     tags: ['Utility Software', 'Wellness', 'Daily Habit'],
     features: [
       {
-        title: 'Low-friction logging',
-        detail: 'Tracking stays quick and obvious so the product supports the habit instead of interrupting it.',
+        title: 'Quick logging',
+        detail: 'Add water in a few taps so tracking does not interrupt the day.',
         icon: '/icons/drop.svg',
       },
       {
-        title: 'Calm reminders',
-        detail: 'Prompts are designed to be supportive and useful rather than loud or gamified.',
-        icon: '/icons/reminder.svg',
+        title: 'Clear daily progress',
+        detail: 'See how much has been logged, how much remains, and whether the daily goal is on track.',
+        icon: '/icons/streak.svg',
       },
       {
-        title: 'Routine-friendly design',
-        detail: 'The product is meant to fit naturally into everyday use and build quiet long-term value.',
-        icon: '/icons/streak.svg',
+        title: 'Simple reminders',
+        detail: 'Use reminders to support the routine without turning hydration into another noisy task list.',
+        icon: '/icons/reminder.svg',
       },
     ],
     extraLinks: [
@@ -188,36 +189,34 @@ export const projects: Project[] = [
     name: 'Nexus POS',
     category: 'Point-of-sale software',
     status: 'Internal',
-    oneLiner: 'Fast point-of-sale software built for focused retail operations.',
-    description:
-      'A fast, focused point-of-sale system built in React and Electron for small convenience-store operations.',
-    portfolioFit:
-      'Reflects Dezolve Labs’ ability to build pragmatic business software around real operational needs.',
+    oneLiner: 'Desktop point-of-sale software for small convenience-store operations.',
+    description: 'Nexus POS is an internal React and Electron system focused on fast checkout and practical store workflows.',
+    portfolioFit: 'An internal business application developed by Dezolve Labs.',
     whyItExists:
-      'Nexus POS exists to make day-to-day retail workflows faster, clearer, and less fragile for small store operations that depend on dependable software every day.',
+      'Small retailers need dependable checkout tools without the complexity and cost of enterprise systems. Nexus POS is being built around the daily workflows of a focused store operation.',
     whyBelongs:
-      'It shows Dezolve Labs’ ability to build practical business software around real operational needs.',
+      'Dezolve Labs handles the product design, desktop engineering, and operational workflow development behind Nexus POS.',
     links: {
       primary: '/contact',
-      primaryLabel: 'Contact the Studio',
+      primaryLabel: 'Contact Dezolve Labs',
       secondary: '/studio',
-      secondaryLabel: 'Explore the Studio',
+      secondaryLabel: 'About the Studio',
     },
     tags: ['Business Software', 'Electron', 'Retail Operations'],
     features: [
       {
-        title: 'Fast transaction flow',
-        detail: 'The interface is built to keep checkout movement quick, legible, and dependable during daily store use.',
+        title: 'Fast checkout flow',
+        detail: 'Keep common transaction steps clear and quick during day-to-day store use.',
         icon: '/icons/clarity.svg',
       },
       {
-        title: 'Focused operational scope',
-        detail: 'It emphasizes the real workflows small convenience-store operators need rather than broad, bloated feature sets.',
+        title: 'Practical store workflows',
+        detail: 'Focus on the tasks a small convenience-store operation actually needs instead of broad enterprise complexity.',
         icon: '/icons/focus.svg',
       },
       {
-        title: 'Desktop reliability',
-        detail: 'React and Electron provide a modern interface layer while keeping the product grounded in practical day-to-day operation.',
+        title: 'Desktop operation',
+        detail: 'Use a React and Electron desktop application designed for a dependable in-store environment.',
         icon: '/icons/share.svg',
       },
     ],
