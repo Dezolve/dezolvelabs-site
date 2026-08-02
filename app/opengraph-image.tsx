@@ -45,10 +45,10 @@ export default function OpenGraphImage() {
 
         <div style={{ display: 'flex', flexDirection: 'column', maxWidth: 940 }}>
           <span style={{ fontSize: 76, lineHeight: 1.02, letterSpacing: '-0.045em', fontWeight: 700 }}>
-            Software products with room to become lasting businesses.
+            Focused software. Built for the long run.
           </span>
           <span style={{ fontSize: 25, color: '#62666f', marginTop: 28 }}>
-            Communication · Consumer utility · Wellness · Business operations
+            Communication · Recommendations · Wellness · Retail operations
           </span>
         </div>
 
