@@ -12,26 +12,19 @@ import styles from './home.module.css';
 const principles = [
   {
     number: '01',
-    title: 'Useful first',
-    copy: 'Every product begins with a real problem, a clear user, and a reason to exist beyond novelty.',
+    title: 'Clear purpose',
+    copy: 'Each product is built around a specific problem, audience, and reason to be used.',
   },
   {
     number: '02',
-    title: 'Focused by design',
-    copy: 'Scope stays disciplined so the experience can become simpler, sharper, and easier to trust.',
+    title: 'Focused experience',
+    copy: 'Features and design choices stay centered on the job the product is meant to do.',
   },
   {
     number: '03',
-    title: 'Built to endure',
-    copy: 'We own what we build and keep improving it with a long horizon instead of chasing launch-day attention.',
+    title: 'Ongoing improvement',
+    copy: 'Products continue to evolve through real use, customer feedback, and long-term technical investment.',
   },
-];
-
-const opportunityTypes = [
-  'Product and technology partnerships',
-  'Platform integrations',
-  'Investment or acquisition conversations',
-  'Early product feedback',
 ];
 
 export const metadata: Metadata = {
@@ -149,14 +142,14 @@ export default function HomePage() {
         <section className="content-section portfolio-led-section" aria-labelledby="portfolio-heading">
           <div className="section-heading split-heading" data-reveal>
             <div>
-              <p className="kicker">The portfolio</p>
+              <p className="kicker">Products</p>
               <h2 id="portfolio-heading" className="section-title">
-                Products are the proof.
+                See what we are building.
               </h2>
             </div>
             <p className="page-copy">
-              Different categories, one standard: clear utility, careful design, and a product worth owning for the long
-              term.
+              Explore live products and active development across communication, recommendations, wellness, and retail
+              software.
             </p>
           </div>
 
@@ -177,7 +170,10 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <div className={`project-spotlight-visual ${hasRealProjectScreenshot(manaCamp.slug) ? 'has-real-preview' : ''}`} aria-hidden="true">
+            <div
+              className={`project-spotlight-visual ${hasRealProjectScreenshot(manaCamp.slug) ? 'has-real-preview' : ''}`}
+              aria-hidden="true"
+            >
               <Image src={manaScreenshot} alt="" width={1600} height={1000} sizes="(max-width: 820px) 92vw, 48vw" />
             </div>
           </article>
@@ -191,9 +187,9 @@ export default function HomePage() {
 
         <section className="content-section philosophy-section" aria-labelledby="principles-heading">
           <div className="section-heading" data-reveal>
-            <p className="kicker">The shared standard</p>
+            <p className="kicker">What to expect</p>
             <h2 id="principles-heading" className="section-title max-copy-width">
-              Build less. Make it matter more.
+              Software with a clear job to do.
             </h2>
           </div>
           <div className="principles-grid editorial-principles">
@@ -209,18 +205,19 @@ export default function HomePage() {
 
         <section className="studio-story dark-section" aria-labelledby="studio-story-heading" data-reveal>
           <div>
-            <p className="kicker kicker-light">Why Dezolve Labs exists</p>
+            <p className="kicker kicker-light">About the studio</p>
             <h2 id="studio-story-heading" className="section-title">
-              One home for products that deserve patient ownership.
+              One team behind a growing product portfolio.
             </h2>
           </div>
           <div className="studio-story-copy">
             <p>
-              Dezolve Labs is an independent studio built to turn focused ideas into durable software. It gives each
-              product the same strategic, technical, and design foundation without forcing them into the same mold.
+              Dezolve Labs brings product strategy, design, engineering, and long-term support together under one studio.
+              Each product keeps its own identity while benefiting from a shared technical foundation and quality
+              standard.
             </p>
             <Button href="/studio" variant="ghost">
-              Inside the studio
+              How the studio works
             </Button>
           </div>
         </section>
@@ -228,14 +225,13 @@ export default function HomePage() {
         <section className="content-section current-direction" aria-labelledby="direction-heading">
           <div className="section-heading split-heading" data-reveal>
             <div>
-              <p className="kicker">Current direction</p>
+              <p className="kicker">Portfolio status</p>
               <h2 id="direction-heading" className="section-title">
-                Building now, not someday.
+                Where the portfolio stands today.
               </h2>
             </div>
             <p className="page-copy">
-              The portfolio is intentionally early. Status is visible because progress matters more than pretending every
-              product is finished.
+              See which products are live, in development, or used internally. Select any product for details and links.
             </p>
           </div>
           <div className="build-status-list">
@@ -254,18 +250,17 @@ export default function HomePage() {
 
         <section className="contact-panel-v2" aria-labelledby="home-contact-heading" data-reveal>
           <div>
-            <p className="kicker">Open conversations</p>
+            <p className="kicker">Work with Dezolve Labs</p>
             <h2 id="home-contact-heading" className="section-title">
-              The right opportunities start with useful context.
+              Have a product, partnership, or opportunity worth discussing?
             </h2>
           </div>
           <div className="contact-panel-content">
-            <ul>
-              {opportunityTypes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <Button href="/contact">Contact Dezolve Labs</Button>
+            <p>
+              Tell us what you are working on, why you think there may be a fit, and what a useful next step would look
+              like.
+            </p>
+            <Button href="/contact">Start a conversation</Button>
           </div>
         </section>
       </div>
