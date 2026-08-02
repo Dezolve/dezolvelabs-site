@@ -1,0 +1,355 @@
+.hero {
+  display: grid;
+  min-height: 100svh;
+  grid-template-columns: minmax(430px, 0.8fr) minmax(620px, 1.2fr);
+  gap: clamp(3rem, 5vw, 6.5rem);
+  align-items: center;
+  padding-top: calc(var(--header-height) + clamp(2.25rem, 4vw, 4rem));
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+
+.heroCopy {
+  display: grid;
+  max-width: 43rem;
+  align-content: center;
+  gap: 1.25rem;
+}
+
+.heroTitle {
+  max-width: 9.5ch;
+  font-size: clamp(4rem, 5.2vw, 6.65rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.heroLede {
+  max-width: 36rem;
+}
+
+.heroProof {
+  display: grid;
+  max-width: 34rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.heroProof span {
+  display: grid;
+  gap: 0.2rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.heroProof strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+}
+
+.productMosaic {
+  display: grid;
+  width: 100%;
+  height: min(640px, calc(100svh - var(--header-height) - 5rem));
+  min-height: 540px;
+  grid-template-columns: minmax(0, 1.55fr) minmax(210px, 0.72fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.manaCard,
+.sideCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(23, 25, 29, 0.1);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.manaCard:hover,
+.sideCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(23, 25, 29, 0.2);
+  box-shadow: var(--shadow-lift);
+}
+
+.manaCard {
+  grid-row: 1 / -1;
+  min-width: 0;
+  border-radius: 34px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(91, 140, 255, 0.38), transparent 34%),
+    radial-gradient(circle at 94% 8%, rgba(255, 139, 61, 0.28), transparent 30%),
+    linear-gradient(145deg, #17264e 0%, #111936 58%, #171323 100%);
+}
+
+.manaCardCopy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  max-width: 62%;
+  height: 100%;
+  align-content: start;
+  gap: 1.1rem;
+  padding: clamp(1.7rem, 2.6vw, 2.5rem);
+}
+
+.cardLabel {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.manaLogo {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-top: clamp(1.2rem, 4vh, 2.8rem);
+  object-fit: contain;
+}
+
+.manaCard h2 {
+  color: var(--white);
+  font-size: clamp(2.7rem, 4vw, 4.8rem);
+}
+
+.manaCard p {
+  max-width: 24rem;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.cardLink {
+  align-self: end;
+  margin-top: auto;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.manaPreview {
+  position: absolute;
+  right: -4%;
+  bottom: -16%;
+  z-index: 1;
+  width: min(58%, 340px);
+  max-height: 86%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 30px 55px rgba(0, 0, 0, 0.42));
+}
+
+.sideCard {
+  display: grid;
+  min-width: 0;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.favstirCard {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(45, 111, 255, 0.2), transparent 48%),
+    #f8faff;
+}
+
+.refreshlyCard {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(22, 198, 182, 0.2), transparent 48%),
+    #f7fcfb;
+}
+
+.sideCardCopy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 64%;
+  align-content: start;
+  gap: 0.55rem;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.sideCard .cardLabel {
+  color: var(--muted);
+}
+
+.sideLogo {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: 0.35rem;
+  object-fit: contain;
+}
+
+.sideCard h2 {
+  font-size: clamp(1.45rem, 2vw, 2rem);
+}
+
+.sideCard p {
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.sidePreview {
+  position: absolute;
+  right: -7%;
+  bottom: -28%;
+  width: min(52%, 145px);
+  max-height: 112%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 18px 28px rgba(23, 25, 29, 0.16));
+}
+
+@media (max-width: 1320px) {
+  .hero {
+    grid-template-columns: minmax(400px, 0.82fr) minmax(540px, 1.18fr);
+    gap: 3rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(4rem, 5.5vw, 5.8rem);
+  }
+
+  .productMosaic {
+    min-height: 510px;
+  }
+
+  .manaCardCopy {
+    max-width: 66%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding-top: calc(var(--header-height) + 4rem);
+    padding-bottom: 4rem;
+  }
+
+  .heroCopy {
+    max-width: 54rem;
+  }
+
+  .heroTitle {
+    max-width: 11ch;
+  }
+
+  .productMosaic {
+    height: 590px;
+    min-height: 590px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    gap: 2.5rem;
+    padding-top: calc(var(--header-height) + 3rem);
+  }
+
+  .heroTitle {
+    font-size: clamp(3.35rem, 14vw, 5rem);
+  }
+
+  .heroProof {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .productMosaic {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 390px 210px;
+  }
+
+  .manaCard {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .manaCardCopy {
+    max-width: 68%;
+    padding: 1.5rem;
+  }
+
+  .manaPreview {
+    right: -2%;
+    width: min(52%, 250px);
+  }
+
+  .sideCardCopy {
+    width: 72%;
+    padding: 1rem;
+  }
+
+  .sideCard p {
+    display: none;
+  }
+
+  .sidePreview {
+    right: -10%;
+    bottom: -34%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .heroProof {
+    gap: 0.55rem;
+  }
+
+  .heroProof span {
+    font-size: 0.58rem;
+  }
+
+  .heroProof strong {
+    font-size: 1.15rem;
+  }
+
+  .productMosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: 360px 180px 180px;
+  }
+
+  .manaCard {
+    grid-column: 1;
+  }
+
+  .manaCardCopy {
+    max-width: 74%;
+  }
+
+  .manaCard h2 {
+    font-size: 2.5rem;
+  }
+
+  .manaCard p {
+    display: none;
+  }
+
+  .sideCardCopy {
+    width: 58%;
+  }
+
+  .sideCard p {
+    display: block;
+  }
+
+  .sidePreview {
+    width: 38%;
+    bottom: -38%;
+  }
+}
