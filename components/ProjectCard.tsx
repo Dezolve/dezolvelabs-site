@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
+import { getProjectScreenshot, hasRealProjectScreenshot } from '@/src/data/projectScreenshots';
 import type { Project } from '@/src/data/projects';
 
 type ProjectCardProps = {
@@ -17,6 +18,8 @@ const projectPalettes: Record<string, [string, string]> = {
 
 export function ProjectCard({ project, revealDelay = 100 }: ProjectCardProps) {
   const [accentFrom, accentTo] = projectPalettes[project.slug] ?? [project.visuals.gradientFrom, project.visuals.gradientTo];
+  const screenshot = getProjectScreenshot(project.slug, project.visuals.preview);
+  const usesRealScreenshot = hasRealProjectScreenshot(project.slug);
   const cardStyle = {
     ['--reveal-delay' as string]: `${revealDelay}ms`,
     ['--card-accent-from' as string]: accentFrom,
@@ -25,9 +28,16 @@ export function ProjectCard({ project, revealDelay = 100 }: ProjectCardProps) {
 
   return (
     <article className="portfolio-card" data-reveal style={cardStyle}>
-      <div className="portfolio-card-visual" aria-hidden="true">
+      <div className={`portfolio-card-visual ${usesRealScreenshot ? 'has-real-preview' : ''}`} aria-hidden="true">
         <div className="portfolio-card-glow" />
-        <Image src={project.visuals.preview} alt="" width={300} height={620} className="portfolio-card-preview" />
+        <Image
+          src={screenshot}
+          alt=""
+          width={1200}
+          height={760}
+          className="portfolio-card-preview"
+          sizes="(max-width: 620px) 92vw, (max-width: 1080px) 44vw, 30vw"
+        />
       </div>
 
       <div className="portfolio-card-content">
