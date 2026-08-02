@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/Container';
 import { ProjectCard } from '@/components/ProjectCard';
 import { projects } from '@/src/data/projects';
+import styles from './portfolio.module.css';
 
 const productStandards = [
   {
@@ -49,7 +50,7 @@ export default function PortfolioPage() {
           <h2 id="portfolio-grid-heading" className="sr-only">
             Dezolve Labs products
           </h2>
-          <div className="portfolio-grid portfolio-page-grid">
+          <div className={`portfolio-grid portfolio-page-grid ${styles.productGrid}`}>
             {projects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} revealDelay={index * 80} />
             ))}
