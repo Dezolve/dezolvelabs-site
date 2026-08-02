@@ -3,18 +3,18 @@ import { Container } from '@/components/Container';
 import { ProjectCard } from '@/components/ProjectCard';
 import { projects } from '@/src/data/projects';
 
-const portfolioLogic = [
+const productStandards = [
   {
-    title: 'A real use case',
-    copy: 'Each product starts with a concrete behavior, problem, or operational need worth improving.',
+    title: 'A real problem',
+    copy: 'The product should solve a specific need for a clear group of people or a real operation.',
   },
   {
-    title: 'A distinct identity',
-    copy: 'Products share a quality standard without being flattened into one visual or commercial formula.',
+    title: 'A focused experience',
+    copy: 'The main job should be easy to understand, easy to use, and worth returning to.',
   },
   {
-    title: 'A long horizon',
-    copy: 'The goal is not a crowded launch calendar. It is a smaller set of products that can compound over time.',
+    title: 'Room to improve',
+    copy: 'The product should have a practical path from a useful first release to something stronger over time.',
   },
 ];
 
@@ -32,16 +32,15 @@ export default function PortfolioPage() {
             Products
           </p>
           <h1 id="portfolio-page-heading" className="page-title" data-reveal>
-            Different products. One deliberate standard.
+            Explore the Dezolve Labs portfolio.
           </h1>
           <div className="page-intro-split" data-reveal>
             <p className="page-copy">
-              Dezolve Labs builds and grows software across communication, consumer utility, wellness, and business
-              operations.
+              Dezolve Labs builds software for communication, recommendations, wellness, and retail operations.
             </p>
             <p>
-              Some products are small and practical. Others are long-horizon platform bets. Each one must earn its place
-              through usefulness, focus, and a credible path to lasting value.
+              Each product has its own audience, purpose, and website. This page gives you a clear view of what it does,
+              where it stands, and where to learn more.
             </p>
           </div>
         </section>
@@ -59,26 +58,26 @@ export default function PortfolioPage() {
 
         <section className="dark-section portfolio-thesis" aria-labelledby="portfolio-rationale-heading" data-reveal>
           <div>
-            <p className="kicker kicker-light">Portfolio thesis</p>
+            <p className="kicker kicker-light">Why one studio</p>
             <h2 id="portfolio-rationale-heading" className="section-title">
-              Broad in category. Consistent in judgment.
+              Different products, supported by the same team.
             </h2>
           </div>
           <p>
-            The portfolio is not held together by one market. It is held together by the way products are chosen and
-            built: real utility, disciplined scope, strong product taste, and patient ownership.
+            Dezolve Labs provides the product strategy, design, engineering, and ongoing support behind the portfolio.
+            That shared foundation helps each product move faster without forcing them to look or behave the same.
           </p>
         </section>
 
         <section className="content-section" aria-labelledby="portfolio-logic-heading">
           <div className="section-heading" data-reveal>
-            <p className="kicker">What earns a place</p>
+            <p className="kicker">What we look for</p>
             <h2 id="portfolio-logic-heading" className="section-title">
-              A simple filter for new products.
+              The basics behind every product we take on.
             </h2>
           </div>
           <div className="portfolio-logic-grid">
-            {portfolioLogic.map((item, index) => (
+            {productStandards.map((item, index) => (
               <article key={item.title} data-reveal>
                 <span>0{index + 1}</span>
                 <h3>{item.title}</h3>
