@@ -1,0 +1,126 @@
+/* Real product captures use browser/app framing rather than the portrait placeholder treatment. */
+.portfolio-card-visual.has-real-preview {
+  min-height: 280px;
+  place-items: center;
+  padding: 1.1rem;
+}
+
+.portfolio-card-visual.has-real-preview .portfolio-card-preview {
+  width: calc(100% - 0.4rem);
+  height: calc(100% - 0.4rem);
+  max-width: none;
+  object-fit: cover;
+  object-position: left top;
+  border: 1px solid rgba(23, 25, 29, 0.13);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 24px 55px rgba(23, 25, 29, 0.2);
+  transform: none;
+}
+
+.project-spotlight-visual.has-real-preview {
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.4rem);
+}
+
+.project-spotlight-visual.has-real-preview img {
+  width: min(100%, 760px);
+  height: auto;
+  max-height: 78%;
+  object-fit: cover;
+  object-position: left top;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  background: #0d1222;
+  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.42);
+  transform: rotate(1.5deg);
+}
+
+.product-hero-visual.has-real-preview {
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.5rem);
+}
+
+.product-hero-visual.has-real-preview .product-preview-image {
+  width: min(100%, 820px);
+  height: auto;
+  max-height: 78%;
+  object-fit: cover;
+  object-position: left top;
+  border: 1px solid rgba(23, 25, 29, 0.14);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(23, 25, 29, 0.24);
+  transform: none;
+}
+
+img[alt="ManaCamp application interface"] {
+  right: -5%;
+  bottom: 5%;
+  width: min(63%, 520px);
+  max-height: 73%;
+  object-fit: cover;
+  object-position: left top;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 17px;
+  background: #0d1222;
+  box-shadow: 0 28px 58px rgba(0, 0, 0, 0.44);
+  transform: rotate(1.5deg);
+}
+
+img[alt="Favstir application interface"],
+img[alt="Refreshly application interface"] {
+  right: -10%;
+  bottom: -7%;
+  width: 72%;
+  height: 68%;
+  max-height: none;
+  object-fit: cover;
+  object-position: left top;
+  border: 1px solid rgba(23, 25, 29, 0.12);
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(23, 25, 29, 0.2);
+  transform: rotate(1.5deg);
+}
+
+@media (max-width: 820px) {
+  .project-spotlight-visual.has-real-preview,
+  .product-hero-visual.has-real-preview {
+    min-height: 360px;
+  }
+
+  .project-spotlight-visual.has-real-preview img,
+  .product-hero-visual.has-real-preview .product-preview-image {
+    max-height: none;
+  }
+}
+
+@media (max-width: 720px) {
+  img[alt="ManaCamp application interface"] {
+    right: -9%;
+    bottom: 6%;
+    width: 64%;
+    max-height: 62%;
+  }
+
+  img[alt="Favstir application interface"],
+  img[alt="Refreshly application interface"] {
+    right: -11%;
+    width: 67%;
+    height: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  img[alt="ManaCamp application interface"] {
+    width: 70%;
+    max-height: 58%;
+  }
+
+  img[alt="Favstir application interface"],
+  img[alt="Refreshly application interface"] {
+    width: 55%;
+    height: 76%;
+  }
+}
