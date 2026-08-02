@@ -5,26 +5,26 @@ import { Container } from '@/components/Container';
 const buildStages = [
   {
     step: '01',
-    title: 'Find the useful core',
-    copy: 'Start with the behavior or problem that genuinely matters. Remove the idea-shaped decoration around it.',
+    title: 'Understand the problem',
+    copy: 'Start with the people, workflow, or daily behavior the product needs to improve.',
   },
   {
     step: '02',
-    title: 'Build the smallest honest product',
-    copy: 'Ship enough to prove the experience, learn from real use, and avoid spending months polishing the wrong shape.',
+    title: 'Ship a focused first version',
+    copy: 'Build the smallest complete experience that can be used, tested, and improved with real feedback.',
   },
   {
     step: '03',
-    title: 'Own the long iteration',
-    copy: 'Improve the product through usage, technical depth, and disciplined expansion instead of feature accumulation.',
+    title: 'Improve it through use',
+    copy: 'Use product feedback, technical learning, and observed behavior to decide what should come next.',
   },
 ];
 
 const selectionSignals = [
-  'A clear user behavior or operational need',
-  'A product experience that can become meaningfully better',
-  'A focused first version with room to compound',
-  'A reason for Dezolve Labs to remain a committed owner',
+  'A clear audience or operational need',
+  'A product experience that can be meaningfully improved',
+  'A focused first release that can stand on its own',
+  'A reason for Dezolve Labs to support the product over time',
 ];
 
 export const metadata: Metadata = {
@@ -41,15 +41,16 @@ export default function StudioPage() {
             The studio
           </p>
           <h1 id="studio-heading" className="page-title" data-reveal>
-            A product company designed for patient building.
+            How Dezolve Labs builds and supports its products.
           </h1>
           <div className="page-intro-split" data-reveal>
             <p className="page-copy">
-              Dezolve Labs is the strategic, technical, and creative home behind an independent software portfolio.
+              Dezolve Labs is an independent product studio responsible for strategy, design, engineering, launch, and
+              ongoing improvement across the portfolio.
             </p>
             <p>
-              The studio exists to choose focused ideas, give them a strong foundation, and stay close enough to the work
-              to make better decisions over time.
+              Keeping those responsibilities connected makes it easier to make clear decisions, maintain quality, and
+              support each product after launch.
             </p>
           </div>
         </section>
@@ -59,11 +60,12 @@ export default function StudioPage() {
             <div>
               <p className="kicker">How we build</p>
               <h2 id="process-heading" className="section-title">
-                From useful idea to owned product.
+                A straightforward product process.
               </h2>
             </div>
             <p className="page-copy">
-              The process is deliberately straightforward. Most product mistakes are not caused by a lack of ceremony.
+              The process stays simple so the team can spend more time understanding the product and less time managing
+              ceremony around it.
             </p>
           </div>
           <div className="studio-process-grid">
@@ -79,13 +81,13 @@ export default function StudioPage() {
 
         <section className="studio-selection" aria-labelledby="selection-heading" data-reveal>
           <div className="studio-selection-copy">
-            <p className="kicker">What we choose</p>
+            <p className="kicker">What we build</p>
             <h2 id="selection-heading" className="section-title">
-              Products that benefit from clarity and committed ownership.
+              Products with a clear user and a practical reason to exist.
             </h2>
             <p>
-              Dezolve Labs is category-flexible but judgment-driven. A product does not need to be enormous. It needs a
-              real reason to exist and a path toward becoming more useful over time.
+              Dezolve Labs works across different categories, but every product needs a specific audience, a useful first
+              release, and a credible path to becoming better over time.
             </p>
           </div>
           <div className="selection-signal-list">
@@ -97,16 +99,16 @@ export default function StudioPage() {
 
         <section className="dark-section founder-note" aria-labelledby="independent-heading" data-reveal>
           <div>
-            <p className="kicker kicker-light">Independent by design</p>
+            <p className="kicker kicker-light">Independent studio</p>
             <h2 id="independent-heading" className="section-title">
-              Close enough to the product to keep the judgment intact.
+              Product decisions stay close to the work.
             </h2>
           </div>
           <div>
             <p>
-              Dezolve Labs is independently operated from Northern California. That structure keeps strategy, design,
-              engineering, and product ownership connected instead of handing the product from one detached function to
-              the next.
+              Dezolve Labs operates independently from Northern California. Product strategy, design, and engineering
+              remain connected, which keeps accountability clear and reduces the distance between an idea and its
+              implementation.
             </p>
             <Button href="/portfolio" variant="ghost">
               Explore the products
@@ -116,15 +118,15 @@ export default function StudioPage() {
 
         <section className="contact-panel-v2 studio-contact" aria-labelledby="studio-contact-heading" data-reveal>
           <div>
-            <p className="kicker">Aligned opportunities</p>
+            <p className="kicker">Work with the studio</p>
             <h2 id="studio-contact-heading" className="section-title">
-              Partnerships should make the product stronger.
+              Have a specific opportunity in mind?
             </h2>
           </div>
           <div className="contact-panel-content">
             <p>
-              Dezolve Labs is open to conversations around product partnerships, integrations, strategic collaboration,
-              investment, and acquisition where the fit is specific and credible.
+              We consider integrations, product partnerships, investment, and acquisition conversations when the fit is
+              clear and the opportunity can make a product stronger.
             </p>
             <Button href="/contact">Start a conversation</Button>
           </div>
